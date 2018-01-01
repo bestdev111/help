@@ -13,6 +13,9 @@ alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
 alias eh='subl ~/workspace/help/README.md'
+
+export EDITOR=nano
+export KOPS_STATE_STORE=s3://kops-state-rt7665
 ```
 
 # Find and replace text docs
