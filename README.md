@@ -30,7 +30,7 @@ export KOPS_STATE_STORE=s3://kops-state-rt7665
 `rename 's/^/avatar_/' *.png`		# append 'avatar_' to all .png files
 `ls ~someuser/`	# Shortcut to the home directory of someuser
 `ls /etc/*a.*` 	# Finds all files in /etc/ with a follwoed by .
-`find -name '*.xml'` 	# Will find all xml files recursive under the cd
+`find . -name '*.xml'` 	# Will find all xml files recursive under the cd
 `find ~ -name development.log` 		# Find all files with name development.log under the home(~)
 `find ~ -name '*.txt' -perm 644`		# Finds all .txt files with permission 644
 `find ~ -mtime 0`						# Finds all files modified in the last 24 hours (0 = 24hrs, 1 = 48hrs, 2 = 72hrs)
