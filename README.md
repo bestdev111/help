@@ -52,3 +52,6 @@ export KOPS_STATE_STORE=s3://kops-state-rt7665
 `cp -r /var/lib/ejabberd/ workspace/backup/` 	#Copy a folder from one location to another (note -r)
 `ln -s jruby-1.4.0/ jruby` # creates a simlink to the install folder for JRuby
 
+# Clean VPN route if connection fails
+1st turn off wifi manually
+`sudo route flush`
