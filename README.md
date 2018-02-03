@@ -36,55 +36,55 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 
 `find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`
 
-`rename 's/\.png$/.jpg/' *.png`	# rename all .png to .jpg 
+`rename 's/\.png$/.jpg/' *.png`	*rename all .png to .jpg*
 
-`rename 's/^/avatar_/' *.png`	# append 'avatar_' to all .png files
+`rename 's/^/avatar_/' *.png`	*append 'avatar_' to all .png files*
 
-`ls ~someuser/`	# Shortcut to the home directory of someuser
+`ls ~someuser/`	*Shortcut to the home directory of someuser*
 
-`ls /etc/*a.*` 	# Finds all files in /etc/ with a follwoed by
+`ls /etc/*a.*` 	*Finds all files in /etc/ with a follwoed by*
 
-`find . -name '*.xml'` 	# Will find all xml files recursive under the cd
+`find . -name '*.xml'` *Will find all xml files recursive under the cd*
 
-`find ~ -name development.log` 		# Find all files with name development.log under the home(~)
+`find ~ -name development.log` 	*Find all files with name development.log under the home(~)*
 
-`find ~ -name '*.txt' -perm 644`		# Finds all .txt files with permission 644
+`find ~ -name '*.txt' -perm 644` *Finds all .txt files with permission 644*
 
-`find ~ -mtime 0`						# Finds all files modified in the last 24 hours (0 = 24hrs, 1 = 48hrs, 2 = 72hrs)
+`find ~ -mtime 0`	*Finds all files modified in the last 24 hours (0 = 24hrs, 1 = 48hrs, 2 = 72hrs)*
 
-`find ~ -atime 0`						# Finds all files accessed in the last 24 hours (0 = 24hrs, 1 = 48hrs, 2 = 72hrs)
+`find ~ -atime 0`	*Finds all files accessed in the last 24 hours (0 = 24hrs, 1 = 48hrs, 2 = 72hrs)*
 
-`find workspace -amin 1`				# Finds all files accessed in the last 1 minute (can also use: amin, cmin, mmin)
+`find workspace -amin 1` *Finds all files accessed in the last 1 minute (can also use: amin, cmin, mmin)*
 
-`find workspace -name dadou -exec rm '{}' \;`	# Finds and deletes all found (test the find on it's own first!)
+`find workspace -name dadou -exec rm '{}' \;`	*Finds and deletes all found (test the find on it's own first!)*
 
-`find workspace -name CVS -type d -exec rm -r '{}' \;`	# Finds and recursive deletes all CVS folders under workspace
+`find workspace -name CVS -type d -exec rm -r '{}' \;` *Finds and recursive deletes all CVS folders under workspace*
 
-`find / -user darren`	# Finds all files by darren
+`find / -user darren`	*Finds all files by darren*
 
-`find / -user darren –exec grep root {} \;` # Finds all files by darren that contain the word "root" (note the use of -exec and "\;" at the end)
+`find / -user darren –exec grep root {} \;` *Finds all files by darren that contain the word "root" (note the use of -exec and "\;" at the end)*
 
-`find ~/workspace -type f -empty` # Find all empty files
+`find ~/workspace -type f -empty` *Find all empty files*
 
-`find ~/workspace -type d -empty` # Find all empty folders
+`find ~/workspace -type d -empty` *Find all empty folders*
 
-`tac` 	# 'cat' command in reverse! It dumps content of file in reverse
+`tac` *'cat' command in reverse! It dumps content of file in reverse*
 
-`tail` 	- shows the last 10 lines of a file
+`tail` 	*shows the last 10 lines of a file*
 
-`tail -40 /etc/sometime.txt`	# Dumps last 40 lines of sometime.txt
+`tail -40 /etc/sometime.txt` *Dumps last 40 lines of sometime.txt*
 
-`tail –f`	- shows the last lines of a file and adds to the output as the file grows
+`tail –f`	*shows the last lines of a file and adds to the output as the file grows*
 
-`grep -r dadou ./workspace/*`  # Find everything in the workspace that contains the word dadou in the file
+`grep -r dadou ./workspace/*` *Find everything in the workspace that contains the word dadou in the file*
 
-`ls -l > list_of_files.txt` #Redirects the output to a file
+`ls -l > list_of_files.txt` *Redirects the output to a file*
 
-`ls -l >> list_of_files.txt` # Redirects the output to a file (and appends the contents >>)
+`ls -l >> list_of_files.txt` *Redirects the output to a file (and appends the contents >>)*
 
-`cp -r /var/lib/ejabberd/ workspace/backup/` 	#Copy a folder from one location to another (note -r)
+`cp -r /var/lib/ejabberd/ workspace/backup/` *Copy a folder from one location to another (note -r)*
 
-`ln -s jruby-1.4.0/ jruby` # creates a simlink to the install folder for JRuby
+`ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
 
 
 ## VPN
