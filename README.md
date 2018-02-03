@@ -1,6 +1,9 @@
 # Help 'for all the things'
 
 Here is a help file 'for all the things'. Good luck!
+
+By the way, here is a [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
 # Bash Alias
 
 ```
@@ -29,10 +32,13 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 
 # Terminal Tips!
 
-`sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`\s\s
-`find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`\s\s
-`rename 's/\.png$/.jpg/' *.png`	# rename all .png to .jpg \s\s
-`rename 's/^/avatar_/' *.png`	# append 'avatar_' to all .png files. \s\s
+`sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`
+
+`find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`
+
+`rename 's/\.png$/.jpg/' *.png`	# rename all .png to .jpg 
+
+`rename 's/^/avatar_/' *.png`	# append 'avatar_' to all .png files. 
 `ls ~someuser/`	# Shortcut to the home directory of someuser. 
 `ls /etc/*a.*` 	# Finds all files in /etc/ with a follwoed by. 
 `find . -name '*.xml'` 	# Will find all xml files recursive under the cd. 
