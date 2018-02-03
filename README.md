@@ -24,6 +24,7 @@ alias dc='docker-compose'
 alias wk='cd ~/workspace/rails-reactjs-docker-example/'
 alias wkh='cd ~/workspace/help/'
 dbash() { docker exec -it "$1" bash; }
+ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 ```
 
 # Find and replace text docs
