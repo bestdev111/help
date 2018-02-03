@@ -27,16 +27,12 @@ dbash() { docker exec -it "$1" bash; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 ```
 
-# Find and replace text docs
-## example below replaces ugly with beautiful
-`sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`
+# Terminal Tips!
 
-## This example finds all files in cd and replaces 12345 with 54321
-`find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`
-
-# Working with Files (find, rename, cat, tail, grep etc)
-`rename 's/\.png$/.jpg/' *.png`	 # rename all .png to .jpg  
-`rename 's/^/avatar_/' *.png`		# append 'avatar_' to all .png files. 
+`sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`\s\s
+`find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`\s\s
+`rename 's/\.png$/.jpg/' *.png`	# rename all .png to .jpg \s\s
+`rename 's/^/avatar_/' *.png`	# append 'avatar_' to all .png files. \s\s
 `ls ~someuser/`	# Shortcut to the home directory of someuser. 
 `ls /etc/*a.*` 	# Finds all files in /etc/ with a follwoed by. 
 `find . -name '*.xml'` 	# Will find all xml files recursive under the cd. 
@@ -61,6 +57,6 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 `cp -r /var/lib/ejabberd/ workspace/backup/` 	#Copy a folder from one location to another (note -r). 
 `ln -s jruby-1.4.0/ jruby` # creates a simlink to the install folder for JRuby. 
 
-# Clean VPN route if connection fails
-1st turn off wifi manually
+## VPN
+1st turn off wifi manually then run:
 `sudo route flush`
