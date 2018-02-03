@@ -4,6 +4,11 @@ Here is a help file 'for all the things'. Good luck!
 # Bash Alias
 
 ```
+export EDITOR=nano
+export KOPS_STATE_STORE=s3://kops-state-rt7665
+export NAMESPACE=staging
+eval "$(rbenv init -)"
+
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 alias gs='git status '
@@ -13,9 +18,12 @@ alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
 alias eh='subl ~/workspace/help/README.md'
-
-export EDITOR=nano
-export KOPS_STATE_STORE=s3://kops-state-rt7665
+# alias ch='cd ~/workspace/help/;git add .;git commit -m \'Update help\';git push origin master'
+alias ks='kubectl'
+alias dc='docker-compose'
+alias wk='cd ~/workspace/rails-reactjs-docker-example/'
+alias wkh='cd ~/workspace/help/'
+dbash() { docker exec -it "$1" bash; }
 ```
 
 # Find and replace text docs
