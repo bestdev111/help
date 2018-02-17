@@ -87,6 +87,11 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 `ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
 
 
-## VPN
+## VPN (Tunnelblik)
+
 1st turn off wifi manually then run:
 `sudo route flush`
+
+## Python HTTP Server
+
+`python -m SimpleHTTPServer`
