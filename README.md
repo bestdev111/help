@@ -24,7 +24,7 @@ alias eh='subl ~/workspace/help/README.md'
 # alias ch='cd ~/workspace/help/;git add .;git commit -m \'Update help\';git push origin master'
 alias ks='kubectl'
 alias dc='docker-compose'
-alias wk='cd ~/workspace/rails-reactjs-docker-example/'
+alias wk='cd ~/workspace/'
 alias wkh='cd ~/workspace/help/'
 dbash() { docker exec -it "$1" bash; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
@@ -86,6 +86,29 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 
 `ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
 
+## Docker & Docker Compose tips
+
+A good image to use for playing around with Docker and Docker Compose is `tutum/hello-world`
+
+NOTE 1 : If there is a `.env` file in the project directory then it's values will be picked up by compose.
+
+NOTE 2: If there is a `docker-compose.override.yml` file in the same directory then running `docker-compose up` will merge the two files together to create a single config. The override file could be put into a .gitignore file thus allowing developers to make speciif local only changes there without causing issues with others.
+
+`docker-compose exec <service-name> bash`
+
+`docker network ls`
+
+`docker network inspect <name>`
+
+`docker inspect <container-name>`
+
+`docker inspect --format '{{.LogPath}}' <container-name>`
+
+`docker-compose logs -f`
+
+`docker volumes ls`
+
+`docker-compose config` #verifies the config is valid
 
 ## VPN (Tunnelblik)
 
