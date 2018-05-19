@@ -86,6 +86,8 @@ ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push or
 
 `ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
 
+`chmod a+wr /some/file` * enables /some/file to be read(r) and write(w) by all(a)
+
 # Securly copy your SSH key to your clipboard
 
 `pbcopy < ~/.ssh/id_rsa.pub`
