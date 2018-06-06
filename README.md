@@ -124,3 +124,13 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 ## Python HTTP Server
 
 `python -m SimpleHTTPServer`
+
+## Git
+
+Change the username of the commit, run:
+
+```
+git config --global user.name "Darren Jensen"
+git config --global user.email "darren.jensen@gmail.com"
+git config credential.username 'jensendarren'
+```
