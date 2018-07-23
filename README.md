@@ -116,6 +116,16 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 
 `docker-compose config` #verifies the config is valid
 
+`docker system prune` 
+
+`docker-compose up --build clik.apps.crm`
+
+# Run a command in a running *container* overriding the default entrypoint
+`docker run -it --entrypoint bash ff095591b4d6`
+
+# Run a command from starting up a new container *from an image* and overriding the default entrypoint
+`docker run -it --entrypoint bash clik/crm:77ad795`
+
 ## VPN (Tunnelblik)
 
 1st turn off wifi manually then run:
@@ -134,3 +144,7 @@ git config --global user.name "Darren Jensen"
 git config --global user.email "darren.jensen@gmail.com"
 git config credential.username 'jensendarren'
 ```
+
+## Postgres
+
+psql -U postgres
