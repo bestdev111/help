@@ -28,6 +28,7 @@ alias wk='cd ~/workspace/'
 alias wkh='cd ~/workspace/help/'
 dbash() { docker exec -it "$1" bash; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
+tf() { docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light "$1"; } 
 ```
 
 # Terminal Tips!
