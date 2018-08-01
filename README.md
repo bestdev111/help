@@ -126,6 +126,10 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 # Run a command from starting up a new container *from an image* and overriding the default entrypoint
 `docker run -it --entrypoint bash clik/crm:77ad795`
 
+# Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
+
+`docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
+
 ## VPN (Tunnelblik)
 
 1st turn off wifi manually then run:
