@@ -12,6 +12,7 @@ export KOPS_STATE_STORE=s3://kops-state-rt7665
 export NAMESPACE=staging
 eval "$(rbenv init -)"
 
+alias fl="networksetup -setairportpower en0 off; sudo route flush; networksetup -setairportpower en0 on;"
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 alias gs='git status '
@@ -135,6 +136,8 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 
 1st turn off wifi manually then run:
 `sudo route flush`
+
+OR us the fl alias as setup above! :)
 
 ## Python HTTP Server
 
