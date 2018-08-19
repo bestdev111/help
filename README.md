@@ -34,6 +34,8 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 # Terminal Tips!
 
+`host myip.opendns.com resolver1.opendns.com` *displays your public ip address*
+
 `sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`
 
 `find . -name *.orig -exec rm {} \; -o -name *DS_Store* -exec rm {} \;`
