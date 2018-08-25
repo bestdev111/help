@@ -92,9 +92,13 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 `chmod a+wr /some/file` * enables /some/file to be read(r) and write(w) by all(a)
 
-# Securly copy your SSH key to your clipboard
+`chmod u+rw /some/file` * enables /some/file to be read(r) and write(w) by the owner(u)
 
-`pbcopy < ~/.ssh/id_rsa.pub`
+## SSH 
+
+`pbcopy < ~/.ssh/id_rsa.pub` *Securly copy your SSH key to your clipboard*
+
+`ssh-keygen -p -f some-keypair.pem` *Encrypt a private key file*
 
 ## Docker & Docker Compose tips
 
@@ -124,13 +128,22 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 
 `docker-compose up --build clik.apps.crm`
 
-# Run a command in a running *container* overriding the default entrypoint
+* Stop and remove all Docker containers
+
+`docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)`
+
+* Remove all untagged images
+
+`docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")`
+
+## Run a command in a running *container* overriding the default entrypoint
 `docker run -it --entrypoint bash ff095591b4d6`
 
-# Run a command from starting up a new container *from an image* and overriding the default entrypoint
+## Run a command from starting up a new container *from an image* and overriding the default entrypoint
 `docker run -it --entrypoint bash clik/crm:77ad795`
 
-# Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
+## Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
 
 `docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
 
@@ -157,4 +170,4 @@ git config credential.username 'jensendarren'
 
 ## Postgres
 
-psql -U postgres
+`psql -U postgres`
