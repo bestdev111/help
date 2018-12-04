@@ -34,6 +34,10 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 # Terminal Tips!
 
+`sed -i -e 's/"Amazon"/"Postgres"/g' appsettings.json` * find and replace a value in a file
+
+`dpkg -l libgdiplus` * check if the libgdiplus is installed on the server
+
 `host myip.opendns.com resolver1.opendns.com` *displays your public ip address*
 
 `sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt`
@@ -96,9 +100,12 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 ## SSH 
 
+`ssh-keygen` *Generates a new public keypair*
+
 `pbcopy < ~/.ssh/id_rsa.pub` *Securly copy your SSH key to your clipboard*
 
 `ssh-keygen -p -f some-keypair.pem` *Encrypt a private key file*
+
 
 ## Docker & Docker Compose tips
 
