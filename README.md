@@ -178,3 +178,19 @@ git config credential.username 'jensendarren'
 ## Postgres
 
 `psql -U postgres`
+
+Display current database
+
+`SELECT current_database();`
+
+List databases
+
+`\l`
+
+Connect to a database called mydb
+
+`\c mydb;`
+
+List tables in database
+
+`\d`
