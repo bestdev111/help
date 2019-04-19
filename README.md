@@ -165,6 +165,19 @@ OR us the fl alias as setup above! :)
 
 `python -m SimpleHTTPServer`
 
+## Python Environments
+
+```
+# Create a new venv called venv
+python -m venv venv
+
+# Activate the venv environment
+source venv/bin/activate
+
+# Deactivate the environment
+deactivate
+```
+
 ## Git
 
 Change the username of the commit, run:
