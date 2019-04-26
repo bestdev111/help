@@ -27,7 +27,8 @@ alias ks='kubectl'
 alias dc='docker-compose'
 alias wk='cd ~/workspace/'
 alias wkh='cd ~/workspace/help/'
-dbash() { docker exec -it "$1" bash; }
+dexec() { docker exec -it "$1" bash; }
+drun() { docker run -it --entrypoint bash "$1"; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; } 
 ```
