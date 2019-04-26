@@ -107,7 +107,6 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 `ssh-keygen -p -f some-keypair.pem` *Encrypt a private key file*
 
-
 ## Docker & Docker Compose tips
 
 A good image to use for playing around with Docker and Docker Compose is `tutum/hello-world`
@@ -154,6 +153,45 @@ docker rm $(docker ps -a -q)`
 ## Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
 
 `docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
+
+## Attach a debugger to a running Docker Container via Docker Compose
+
+Esentially you need to add the following to the docker compose service that you want to debug:
+
+```
+stdin_open: true
+tty: true
+```
+
+Then you simply run `docker attach CONTAINER_ID` and run the code / hit the end point that will cause the debugger to start.
+
+See [this example](https://blog.lucasferreira.org/howto/2017/06/03/running-pdb-with-docker-and-gunicorn.html) for more details.
+
+## Running Postgres in a Docker Container
+
+Run a postgres instance in Docker like so:
+
+`docker run --name postgres_server -e POSTGRES_PASSWORD=mysecretpassword -v postgres_data:/var/lib/postgresql/data -d -p 5432:5432 postgres:10.6`
+
+Now connect to the running server instance `docker exec -it postgres_server_container_id bash;`
+
+...and create the database like so:
+
+```
+su - postgres
+psql
+create database "mycooldb";
+```
+
+Test connecting to the database server via the host (i.e. from outside the running db container):
+
+`psql -h localhost -p 5432 -U postgres`
+
+You will be asked for the Postgres server password which is set in the `docker run` command as an environment variable above.
+
+Given the psql CLI connects to the database, the following general psql connection string should also work:
+
+`postgresql://postgres:mysecretpassword@localhost:5432/pyapi-development`
 
 ## VPN (Tunnelblik)
 
