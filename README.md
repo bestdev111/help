@@ -193,6 +193,38 @@ Given the psql CLI connects to the database, the following general psql connecti
 
 `postgresql://postgres:mysecretpassword@localhost:5432/pyapi-development`
 
+## AWS Linux Bastion Host 
+
+Connect to RDS Postgres
+
+```
+sudo yum install postgresql
+
+# Connect to template1 database (enter the pw set during setup)
+psql -h RDS_DB_ENDPOINT -p 5432 -U MASTER_USERNAME template1
+
+# Install Git
+sudo yum install git
+
+# Install Docker
+sudo yum install docker
+
+# Build Docker Image
+sudo docker build -t "MY_IMAGE_TAG"
+
+# Set the DATABASE_URL environment var on the host machine `export DATABASE_URL=postgresql+psycopg2://MASTER_USERNAME:MASTER_DB_PASSWORD@DOMAIN:5432/DATABASE_NAME`
+
+# Or run the migrations in the Container and exit
+# Note you need to set the DATABASE_URL environment var on the host machine
+sudo docker run -it --rm -e DATABASE_URL=$DATABASE_URL py-api:latest flask db upgrade
+
+# Connect to the the Container
+sudo docker run -it --entrypoint bash REPOSITORY:TAG
+
+# Test your database by connecting to it directly (see psql above)
+
+```
+
 ## VPN (Tunnelblik)
 
 1st turn off wifi manually then run:
