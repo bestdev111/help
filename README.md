@@ -28,7 +28,7 @@ alias dc='docker-compose'
 alias wk='cd ~/workspace/'
 alias wkh='cd ~/workspace/help/'
 dexec() { docker exec -it "$1" bash; }
-drun() { docker run -it --entrypoint bash "$1"; }
+drun() { docker run -it --entrypoint bash -v "$PWD":"$1" "$2"; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; } 
 ```
@@ -257,6 +257,16 @@ Change the username of the commit, run:
 git config --global user.name "Darren Jensen"
 git config --global user.email "darren.jensen@gmail.com"
 git config credential.username 'jensendarren'
+```
+
+Get the diff between two commits
+
+```
+# Between 4ac0a673 and 5688b75
+git diff 5688b75..4ac0a673
+
+# Between working copy and 5688b75
+git diff 4ac0a6733
 ```
 
 ## Postgres
