@@ -271,6 +271,12 @@ git diff 5688b75..4ac0a673
 git diff 4ac0a6733
 ```
 
+Show a specific file at a particular commit
+
+```
+git show 000a7a9a:path/to/the/file.txt
+```
+
 ## Postgres
 
 `psql -U postgres`
