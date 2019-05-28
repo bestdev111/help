@@ -277,6 +277,12 @@ Show a specific file at a particular commit
 git show 000a7a9a:path/to/the/file.txt
 ```
 
+Replace that version of the file in your wd
+
+```
+git checkout 000a7a9a path/to/the/file.txt
+```
+
 ## Postgres
 
 `psql -U postgres`
