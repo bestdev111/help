@@ -39,6 +39,8 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 # Terminal Tips!
 
+`sudo su` elevate to sudo user permanently
+
 `du -skh *` check the size of files and folders in the current directory
 
 `sed -i -e 's/"Amazon"/"Postgres"/g' appsettings.json` * find and replace a value in a file
