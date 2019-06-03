@@ -30,6 +30,7 @@ alias di='docker images'
 alias wk='cd ~/workspace/'
 alias wkp='cd ~/workspace/rotati/pyful/py-api'
 alias wkv='cd ~/workspace/rotati/pyful/vue-crypto'
+alias wkl='cd ~/workspace/learning/machine-learning-with-python'
 alias wkh='cd ~/workspace/help/'
 dexec() { docker exec -it "$1" bash; }
 drun() { docker run -it --entrypoint bash -v "$PWD":"$1" "$2"; }
