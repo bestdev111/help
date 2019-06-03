@@ -40,6 +40,10 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 # Terminal Tips!
 
+`sudo su` elevate to sudo user permanently
+
+`du -skh *` check the size of files and folders in the current directory
+
 `sed -i -e 's/"Amazon"/"Postgres"/g' appsettings.json` * find and replace a value in a file
 
 `dpkg -l libgdiplus` * check if the libgdiplus is installed on the server
@@ -143,7 +147,7 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 * Stop and remove all Docker containers
 
 `docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)`
+docker rm -f $(docker ps -a -q)`
 
 * Remove all untagged images
 
