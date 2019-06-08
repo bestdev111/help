@@ -162,7 +162,15 @@ docker rm -f $(docker ps -a -q)`
 
 `docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
 
-## Attach a debugger to a running Docker Container via Docker Compose
+## Attach a debugger to a running Docker Container
+
+Follow these steps:
+
+1. Put the breakpoint in the code
+1. Attach to the running docker container like so `docker attach CONTAINER_ID`
+1. Execute the action which will cause the breakpoint to hit
+
+### ... via Docker Compose
 
 Esentially you need to add the following to the docker compose service that you want to debug:
 
