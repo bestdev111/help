@@ -283,7 +283,7 @@ Get the diff between two commits
 git diff 5688b75..4ac0a673
 
 # Between working copy and 5688b75
-git diff 4ac0a6733
+git diff 5688b75
 ```
 
 Show a specific file at a particular commit
