@@ -330,3 +330,11 @@ Connect to a database called mydb
 List tables in database
 
 `\d`
+
+List schemas in database
+
+`\dn`
+
+List all tables in a schema (e.g. 'demo')
+
+`\dt demo.`
