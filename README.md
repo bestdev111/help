@@ -210,6 +210,19 @@ Given the psql CLI connects to the database, the following general psql connecti
 
 `postgresql://postgres:mysecretpassword@localhost:5432/pyapi-development`
 
+## Let's say you want to test some sql file or data dump someone sent you
+## Fire up Postgres instance mounting the folder where the sql files are (e.g. Downloads)
+
+`docker run -v ~/Downloads:/var/data -d postgres:10.6`
+
+### Connect to the running instance using your shortcut
+
+`dbash CONTAINER_ID`
+
+### In postgres you may need to create the database first and then run the folling
+
+`psql -U postgres -d some_database -a -f some_dump_file.sql`
+
 ## AWS Linux Bastion Host 
 
 Connect to RDS Postgres
