@@ -34,13 +34,14 @@ alias wkl='cd ~/workspace/learning/machine-learning-with-python'
 alias wkh='cd ~/workspace/help/'
 dexec() { docker exec -it "$1" bash; }
 drun() { docker run -it --entrypoint bash -v "$PWD":"$1" "$2"; }
+dclean() { docker stop $(docker ps -a -q); docker rm -f $(docker ps -a -q); docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}"); }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; } 
 ```
 
 # Terminal Tips!
 
-`sudo su` elevate to sudo user permanently
+`sudo su` elevate to sudo user permanently (without password)
 
 `du -skh *` check the size of files and folders in the current directory
 
