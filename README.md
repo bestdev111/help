@@ -187,6 +187,8 @@ tty: true
 
 Then you simply run `docker attach CONTAINER_ID` and run the code / hit the end point that will cause the debugger to start.
 
+NOTE: To DETACH from the running container WITHOUT stopping it follow the CTRL-p + CTRL-q key sequence
+
 See [this example](https://blog.lucasferreira.org/howto/2017/06/03/running-pdb-with-docker-and-gunicorn.html) for more details.
 
 ## Running Postgres in a Docker Container
