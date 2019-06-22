@@ -34,13 +34,14 @@ alias wkl='cd ~/workspace/learning/machine-learning-with-python'
 alias wkh='cd ~/workspace/help/'
 dexec() { docker exec -it "$1" bash; }
 drun() { docker run -it --entrypoint bash -v "$PWD":"$1" "$2"; }
+dclean() { docker stop $(docker ps -a -q); docker rm -f $(docker ps -a -q); docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}"); docker system prune -f; docker system prune --volumes -f; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
 tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; } 
 ```
 
 # Terminal Tips!
 
-`sudo su` elevate to sudo user permanently
+`sudo su` elevate to sudo user permanently (without password)
 
 `du -skh *` check the size of files and folders in the current directory
 
@@ -136,7 +137,7 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 
 `docker-compose logs -f`
 
-`docker volumes ls`
+`docker volume ls`
 
 `docker-compose config` #verifies the config is valid
 
@@ -221,7 +222,7 @@ Given the psql CLI connects to the database, the following general psql connecti
 
 ### Connect to the running instance using your shortcut
 
-`dbash CONTAINER_ID`
+`dexec CONTAINER_ID`
 
 ### In postgres you may need to create the database first and then run the folling
 
