@@ -160,9 +160,13 @@ docker rm -f $(docker ps -a -q)`
 ## Run a command from starting up a new container *from an image* and overriding the default entrypoint
 `docker run -it --entrypoint bash clik/crm:77ad795`
 
+Another example (without using the --entrypoint flag):
+
+`docker run -di rails6-demo_web bash`
+
 ## Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
 
-`docker run -i -t --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
+`docker run -it --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
 
 ## Attach a debugger to a running Docker Container
 
@@ -182,6 +186,8 @@ tty: true
 ```
 
 Then you simply run `docker attach CONTAINER_ID` and run the code / hit the end point that will cause the debugger to start.
+
+NOTE: To DETACH from the running container WITHOUT stopping it follow the CTRL-p + CTRL-q key sequence
 
 See [this example](https://blog.lucasferreira.org/howto/2017/06/03/running-pdb-with-docker-and-gunicorn.html) for more details.
 
