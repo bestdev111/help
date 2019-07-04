@@ -320,6 +320,8 @@ git checkout 000a7a9a path/to/the/file.txt
 
 ### Pushing to multiple git repos
 
+Taken from [this gist](https://gist.github.com/rvl/c3f156e117e22a25f242)
+
 Setup remotes (the **origin** remote probably points to one of these URLs):
 
 ```
