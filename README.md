@@ -318,6 +318,43 @@ Replace that version of the file in your wd
 git checkout 000a7a9a path/to/the/file.txt
 ```
 
+### Pushing to multiple git repos
+
+Setup remotes (the **origin** remote probably points to one of these URLs):
+
+```
+git remote add github git@github.com:jensendarren/my-project.git
+git remote add bb git@bitbucket.org:darren_jensen/my-project.git
+```
+
+Setup remote push URLs
+
+```
+git remote set-url --add --push origin git@github.com:jensendarren/my-project.git
+git remote set-url --add --push origin git@bitbucket.org:darren_jensen/my-project.git
+```
+
+Check the config
+
+```
+git remote show origin
+cat .git/config
+```
+
+So now all pushes will push to both remote repositories (no changes to the workflow here):
+
+```
+git push origin master
+```
+
+For pulling in work is slightly different in order to fetch changes from both remote repos. In order to do that:
+
+```
+git fetch --all
+git merge github/next_release bb/next_release
+```
+
+
 ## Postgres
 
 `psql -U postgres`
