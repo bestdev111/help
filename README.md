@@ -322,18 +322,28 @@ git checkout 000a7a9a path/to/the/file.txt
 
 Taken from [this gist](https://gist.github.com/rvl/c3f156e117e22a25f242)
 
+Start by cloning the test repo!!
+
+`git clone git@bitbucket.org:darren_jensen/hurdey-gurdey.git`
+
 Setup remotes (the **origin** remote probably points to one of these URLs):
 
 ```
-git remote add github git@github.com:jensendarren/my-project.git
-git remote add bb git@bitbucket.org:darren_jensen/my-project.git
+# Just set one additional remote since we can assume the remote origin is already set to git@bitbucket.org:darren_jensen/hurdey-gurdey.git since that is where we cloned from
+git remote add rotati git@github.com:rotati/hurdey-gurdey.git
 ```
 
 Setup remote push URLs
 
 ```
-git remote set-url --add --push origin git@github.com:jensendarren/my-project.git
-git remote set-url --add --push origin git@bitbucket.org:darren_jensen/my-project.git
+git remote set-url --add --push origin git@bitbucket.org:darren_jensen/hurdey-gurdey.git
+git remote set-url --add --push origin git@github.com:rotati/hurdey-gurdey.git
+```
+
+Set the default checkout default remote to origin: 
+
+```
+git config --add checkout.defaultRemote origin
 ```
 
 Check the config
@@ -353,7 +363,7 @@ For pulling in work is slightly different in order to fetch changes from both re
 
 ```
 git fetch --all
-git merge github/next_release bb/next_release
+git merge --squash github/next_release bb/next_release
 ```
 
 
