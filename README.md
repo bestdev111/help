@@ -117,6 +117,8 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 `ssh-keygen -p -f some-keypair.pem` *Encrypt a private key file*
 
+`ssh-add -K ~/.ssh/id_rsa_somenewkey` *Add the new key to the ssh agent so its used when attempting to authenticate*
+
 ## Docker & Docker Compose tips
 
 A good image to use for playing around with Docker and Docker Compose is `tutum/hello-world`
