@@ -368,6 +368,21 @@ git fetch --all
 git merge --squash github/next_release bb/next_release
 ```
 
+Process is:
+
+```
+git checkout develop
+git pull origin develop
+git checkout -b some_new_branch
+git fetch --all
+git branch -a 
+git checkout rotati/167337886_blah <-- now in detached HEAD
+git merge some_new_branch <-- effectivly merging in develop HEAD 
+git checkout some_new_branch
+git merge --squash rotati/167337886_blah
+# Do work then commit....
+```
+
 
 ## Postgres
 
