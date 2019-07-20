@@ -383,6 +383,24 @@ git merge --squash rotati/167337886_blah
 # Do work then commit....
 ```
 
+### Deleting a local and remote commit
+
+```
+# Find the commit SHA you wish to remove from the current branch logs
+git log --pretty=oneline --abbrev-commit
+
+# Open the rebase tool to show the last N commits (here 2)
+git rebase -i HEAD~2
+
+# In the text editor that opens, remove the commit line from the file
+# In my case the file opens in nano so I just remove the like using CTRL+K and then exit from nano
+
+# Check the log again and you should see the commit is gone!
+git log --pretty=oneline --abbrev-commit
+
+# Finally, you must to a forced push to update the changes to the remove branch (note the + before the branch name means to force the changes)
+git push origin +branch_name
+```
 
 ## Postgres
 
