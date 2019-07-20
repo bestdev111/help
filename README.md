@@ -402,6 +402,16 @@ git log --pretty=oneline --abbrev-commit
 git push origin +branch_name
 ```
 
+### Deleting local and remote branches
+
+```
+# To delete a local branch
+git branch -d branch_name
+
+# To delete a remote branch
+git push <remote_name> --delete <branch_name>
+```
+
 ## Postgres
 
 `psql -U postgres`
