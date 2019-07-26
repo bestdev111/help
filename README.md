@@ -465,3 +465,17 @@ Install a Python pip package directly from Github:
 pip uninstall vcrpy
 pip install https://github.com/kevin1024/vcrpy/archive/master.zip
 ```
+
+### Tmux
+
+You can attach to another session on a server by using Tmux as follows:
+
+```
+tmux attach
+```
+
+To detach simply:
+
+```
+tmux detach
+```
