@@ -105,6 +105,10 @@ tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashico
 
 `ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
 
+`ln -s /path/to/original /path/to/link` *a better example of creating a symlink*
+
+`ln -s "/path/to/the original" /path/to/link` *example of creating a symlink if there are spaces in the directory (basically surround with quotes)*
+
 `chmod a+wr /some/file` * enables /some/file to be read(r) and write(w) by all(a)
 
 `chmod u+rw /some/file` * enables /some/file to be read(r) and write(w) by the owner(u)
