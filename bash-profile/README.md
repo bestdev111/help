@@ -15,7 +15,7 @@ alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
-alias eh='cd ~/workspace/help; subl .'
+alias eh='cd ~/workspace/help; code .'
 # alias ch='cd ~/workspace/help/;git add .;git commit -m \'Update help\';git push origin master'
 alias ks='kubectl'
 alias dc='docker-compose'
@@ -30,5 +30,5 @@ dexec() { docker exec -it "$1" bash; }
 drun() { docker run -it --entrypoint bash -v "$PWD":"$1" "$2"; }
 dclean() { docker stop $(docker ps -a -q); docker rm -f $(docker ps -a -q); docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}"); docker system prune -f; docker system prune --volumes -f; }
 ch() { cd ~/workspace/help/; git add .; git commit -m 'Update help'; git push origin master; }
-tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; } 
+tf() { docker run -i -t --rm -v $(pwd):/tf -v ~/.aws/:/root/.aws/ -w /tf hashicorp/terraform:light "$1"; }
 ```
