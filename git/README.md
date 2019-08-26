@@ -1,11 +1,18 @@
 ## Git
 
-Change the username of the commit, run:
+Change the **global** username for commits made by default on all repos:
 
 ```
 git config --global user.name "Darren Jensen"
 git config --global user.email "darren.jensen@gmail.com"
 git config credential.username 'jensendarren'
+```
+
+Change the **local** username for commits made in a _specific_ repo:
+
+```
+git config user.name "Darren Jensen Contractor"
+git config user.email "darren.jensen@acontractor.com"
 ```
 
 Get the diff between two commits
@@ -52,7 +59,7 @@ git remote set-url --add --push origin git@bitbucket.org:darren_jensen/hurdey-gu
 git remote set-url --add --push origin git@github.com:rotati/hurdey-gurdey.git
 ```
 
-Set the default checkout default remote to origin: 
+Set the default checkout default remote to origin:
 
 ```
 git config --add checkout.defaultRemote origin
@@ -85,9 +92,9 @@ git checkout develop
 git pull origin develop
 git checkout -b some_new_branch
 git fetch --all
-git branch -a 
+git branch -a
 git checkout rotati/167337886_blah <-- now in detached HEAD
-git merge some_new_branch <-- effectivly merging in develop HEAD 
+git merge some_new_branch <-- effectivly merging in develop HEAD
 git checkout some_new_branch
 git merge --squash rotati/167337886_blah
 # Do work then commit....
