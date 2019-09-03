@@ -1,5 +1,27 @@
 ## Curl
 
+### Cookbook (General Examples)
+
+Below taken from the [Curl Cookbook](https://catonmat.net/cookbooks/curl)
+
+* Make a POST Request (TLDR: Use -X POST argument)*
+* Add POST Data to a Request (TLDR: Use -d var=val argument)*
+* Construct a Query String (TLDR: Use -G argument)*
+* Add HTTP Headers (TLDR: Use -H 'Header: Value' argument)*
+* Change the User Agent (TLDR: Use -A 'User Agent' argument)*
+* Set Cookies (TLDR: Use -b name=value argument)*
+* Add a Referrer (TLDR: Use -e URL argument)*
+* Follow a 3XX Redirect (TLDR: Use -L argument)*
+* Use the Basic HTTP Authentication (TLDR: Use -u user:pass argument*)
+* Print the Response Headers (TLDR: Use -i argument)*
+* Use a Proxy (TLDR: Use -x protocol://host:port argument)*
+* Ignore the SSL Certificate (TLDR: Use -k argument)*
+* Make Curl Silent (TLDR: Use -s argument)*
+* Save the Response to a File (TLDR: Use -o file argument)*
+* Make Curl Slow (TLDR: Use --limit-rate 8k (8KB/sec) argument)*
+* Debug Curl Requests (TLDR: Use -v or --trace arguments)*
+* Make a GET Request (TLDR: No arguments required, it's the default)*
+
 ### Pass JSON as a request parameter
 
 ```
@@ -36,3 +58,4 @@ Below is a basic bash script example to load test an endpoint using Curl
 ```
 while true; do sleep 0.01; curl -H "Content-Type: application/json" -X GET www.example.com/someendpoint; echo -e '\n\n\n\n'$(date);done
 ```
+
