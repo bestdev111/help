@@ -4,6 +4,8 @@
 
 [Check this Rails 6 Docker example](https://github.com/jensendarren/rails6-docker-demo)
 
+### Basic commands
+
 A good image to use for playing around with Docker and Docker Compose is `tutum/hello-world`
 
 NOTE 1 : If there is a `.env` file in the project directory then it's values will be picked up by compose.
@@ -39,21 +41,21 @@ docker rm -f $(docker ps -a -q)`
 
 `docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")`
 
-## Run a command in a running *container* overriding the default entrypoint
+### Run a command in a running *container* overriding the default entrypoint
 `docker run -it --entrypoint bash ff095591b4d6`
 
-## Run a command from starting up a new container *from an image* and overriding the default entrypoint
+### Run a command from starting up a new container *from an image* and overriding the default entrypoint
 `docker run -it --entrypoint bash clik/crm:77ad795`
 
 Another example (without using the --entrypoint flag):
 
 `docker run -di rails6-demo_web bash`
 
-## Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
+### Run a commmand from a Docker image that requires mounting the local file structure (example below is using terraform)
 
 `docker run -it --rm -v $(pwd):/tf -w /tf hashicorp/terraform:light init`
 
-## Attach a debugger to a running Docker Container
+### Attach a debugger to a running Docker Container
 
 Follow these steps:
 
@@ -76,7 +78,7 @@ NOTE: To DETACH from the running container WITHOUT stopping it follow the CTRL-p
 
 See [this example](https://blog.lucasferreira.org/howto/2017/06/03/running-pdb-with-docker-and-gunicorn.html) for more details.
 
-## Running Postgres in a Docker Container
+### Running Postgres in a Docker Container
 
 Run a postgres instance in Docker like so:
 
@@ -102,8 +104,8 @@ Given the psql CLI connects to the database, the following general psql connecti
 
 `postgresql://postgres:mysecretpassword@localhost:5432/pyapi-development`
 
-## Let's say you want to test some sql file or data dump someone sent you
-## Fire up Postgres instance mounting the folder where the sql files are (e.g. Downloads)
+### Let's say you want to test some sql file or data dump someone sent you
+### Fire up Postgres instance mounting the folder where the sql files are (e.g. Downloads)
 
 `docker run -v ~/Downloads:/var/data -d postgres:10.6`
 
