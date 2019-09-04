@@ -1,5 +1,9 @@
 ## Docker & Docker Compose tips
 
+### Create a new Docker based Rails app
+
+[Check this Rails 6 Docker example](https://github.com/jensendarren/rails6-docker-demo)
+
 A good image to use for playing around with Docker and Docker Compose is `tutum/hello-world`
 
 NOTE 1 : If there is a `.env` file in the project directory then it's values will be picked up by compose.
@@ -22,7 +26,7 @@ NOTE 2: If there is a `docker-compose.override.yml` file in the same directory t
 
 `docker-compose config` #verifies the config is valid
 
-`docker system prune` 
+`docker system prune`
 
 `docker-compose up --build clik.apps.crm`
 
