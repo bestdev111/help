@@ -29,3 +29,11 @@ Host someotherhost
 ```
 
 So naturually, its possible to easily use a different public keys depending on the server. For more details check out [this article](https://linuxize.com/post/using-the-ssh-config-file/).
+
+### SHA
+
+To hash a phrase, use the following:
+
+```
+echo -n 'I call heads. And I have a secret. I hate your lasagna.' | shasum -a 256
+```
