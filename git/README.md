@@ -115,7 +115,7 @@ git rebase -i HEAD~2
 # Check the log again and you should see the commit is gone!
 git log --pretty=oneline --abbrev-commit
 
-# Finally, you must to a forced push to update the changes to the remove branch (note the + before the branch name means to force the changes)
+# Finally, you must to a forced push to update the changes to the remote branch (note the + before the branch name means to force the changes)
 git push origin +branch_name
 ```
 
