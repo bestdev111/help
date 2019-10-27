@@ -116,3 +116,7 @@ Given the psql CLI connects to the database, the following general psql connecti
 ### In postgres you may need to create the database first and then run the folling
 
 `psql -U postgres -d some_database -a -f some_dump_file.sql`
+
+### Copy file from running container to local file system:
+
+`docker cp <containerId>:/file/path/within/container /host/path/target`

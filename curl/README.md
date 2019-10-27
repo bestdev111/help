@@ -59,3 +59,9 @@ Below is a basic bash script example to load test an endpoint using Curl
 while true; do sleep 0.01; curl -H "Content-Type: application/json" -X GET www.example.com/someendpoint; echo -e '\n\n\n\n'$(date);done
 ```
 
+## Submit Form Data via CURL
+
+```
+curl -d "meeting_form[time]=2019-10-30%2010:00" -d "meeting_form[organizer_id]=1" -d "meeting_form[invitee_ids]=1,2" -X POST http://localhost:3000/meetings/create
+```
+
