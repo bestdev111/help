@@ -2,6 +2,16 @@
 
 `psql -U postgres`
 
+Display server version
+
+```
+postgres=# SHOW SERVER_VERSION;
+ server_version
+----------------
+ 9.3.25
+(1 row)
+```
+
 Display current database
 
 `SELECT current_database();`

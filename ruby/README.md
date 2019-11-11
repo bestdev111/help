@@ -1,5 +1,7 @@
 # Ruby Programming Tips
 
+https://blog.arkency.com/2014/07/hidden-features-of-ruby-you-may-dont-know-about/?utm_source=Arkency+Newsletter&utm_campaign=d0d1efa031-Welcome_in_Arkency_Newsletter9_5_2014&utm_medium=email&utm_term=0_4cee302d8a-d0d1efa031-104134847
+
 Tested using Ruby version 2.6.4p104
 
 ```
