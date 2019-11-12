@@ -13,8 +13,8 @@ done
 
 echo "PostgreSQL started. Setting up databases..."
 
-# Now we can setup the database!
-rake db:setup # perfoms db:create, db:schema:load, db:seed
+# Now we can setup the database (db:exist is a custom rake task)!
+rake db:exists || rake db:setup
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
