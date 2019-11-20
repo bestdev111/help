@@ -103,3 +103,9 @@ irb(main):0> colors = ["cyan", "magenta", "yellow", "white"];
 irb(main):0> Hash[*colors]
 => {"cyan"=>"magenta", "yellow"=>"white"}
 ```
+
+# Load / Require all files under a specific directory
+
+```
+Dir[File.expand_path "lib/**/*.rb"].each{|f| require_relative(f)}
+```
