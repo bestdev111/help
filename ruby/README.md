@@ -109,3 +109,18 @@ irb(main):0> Hash[*colors]
 ```
 Dir[File.expand_path "lib/**/*.rb"].each{|f| require_relative(f)}
 ```
+
+## String Templates
+
+```
+template = "Hi, I am  %{name}, and I like %{food}, don't you?"
+p template % { name: 'Darren', food: 'tomatoes' }
+=> "Hi, I am  Darren, and I like tomatoes, don't you?"
+```
+
+## Logging
+
+```
+require 'logger'
+Logger.new(STDOUT)
+```
