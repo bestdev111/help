@@ -71,3 +71,5 @@
 `chmod a+wr /some/file` * enables /some/file to be read(r) and write(w) by all(a)
 
 `chmod u+rw /some/file` * enables /some/file to be read(r) and write(w) by the owner(u)
+
+`dig domain.com` * lookup dns records, mx records, nameservers, host ip, hosts etc
