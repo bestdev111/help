@@ -73,3 +73,7 @@
 `chmod u+rw /some/file` * enables /some/file to be read(r) and write(w) by the owner(u)
 
 `dig domain.com` * lookup dns records, mx records, nameservers, host ip, hosts etc
+
+`nslookup mydomain.com` * alternaive dns info lookup
+
+`dig -t MX rotati.tech` * lookup a specific DNS entry i.e. MX records
