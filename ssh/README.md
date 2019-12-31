@@ -37,3 +37,12 @@ To hash a phrase, use the following:
 ```
 echo -n 'I call heads. And I have a secret. I hate your lasagna.' | shasum -a 256
 ```
+
+### SCP - Secure Copy Files
+
+To copy a file from a local machine to a remote machine using SSH:
+
+```
+scp <source> <destination>
+scp /path/to/file username@a:/path/to/destination
+```
