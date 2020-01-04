@@ -46,3 +46,5 @@ To copy a file from a local machine to a remote machine using SSH:
 scp <source> <destination>
 scp /path/to/file username@a:/path/to/destination
 ```
+
+Note above username@a is the username of the ssh user on the server 'a' and sometimes this will only appear to work using the server IP address.

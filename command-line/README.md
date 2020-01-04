@@ -60,6 +60,8 @@
 
 `ls -l >> list_of_files.txt` *Redirects the output to a file (and appends the contents >>)*
 
+See [Save Terminal Output to a File for details](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file)
+
 `cp -r /var/lib/ejabberd/ workspace/backup/` *Copy a folder from one location to another (note -r)*
 
 `ln -s jruby-1.4.0/ jruby` *creates a simlink to the install folder for JRuby*
@@ -77,3 +79,7 @@
 `nslookup mydomain.com` * alternaive dns info lookup
 
 `dig -t MX rotati.tech` * lookup a specific DNS entry i.e. MX records
+
+## Copy contents to clipboard
+
+cat ~/.bashrc | pbcopy

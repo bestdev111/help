@@ -25,7 +25,7 @@ irb(main):0> "110111".to_i(2)
 => 55
 ```
 
-Usiing the `int.to_s(base=10)` method.
+Using the `int.to_s(base=10)` method.
 
 ```
 irb(main):0> 55.to_s(2)
