@@ -128,3 +128,12 @@ git branch -d branch_name
 # To delete a remote branch
 git push <remote_name> --delete <branch_name>
 ```
+
+## Fork a Github repo to Gitlab
+
+1. Create the empty repo in Gitlab
+1. Clone and add an upstream remote with `git remote add upstream https://github.com/user/repo`
+1. Now pull the upstream master `git pull upstream master`
+1. Now push to the Gitlab (origin) master `git push origin master`
+
+Above from [this SO question](https://stackoverflow.com/questions/50973048/forking-git-repository-from-github-to-gitlab).

@@ -56,7 +56,9 @@
 
 `grep -r dadou ./workspace/*` *Find everything in the workspace that contains the word dadou in the file*
 
-`ls -l > list_of_files.txt` *Redirects the output to a file*
+`ls -l > list_of_files.txt` *Redirects the STDOUT to a file*
+
+`ls -l 2> list_of_files.txt` *Redirects the STDERR to a file*
 
 `ls -l >> list_of_files.txt` *Redirects the output to a file (and appends the contents >>)*
 
@@ -83,3 +85,11 @@ See [Save Terminal Output to a File for details](https://askubuntu.com/questions
 ## Copy contents to clipboard
 
 cat ~/.bashrc | pbcopy
+
+## Get current version of Ubuntu
+
+Use LSB Release
+
+```
+lsb_release -r
+```
