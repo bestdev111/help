@@ -14,8 +14,23 @@ Change the **local** username for commits made in a _specific_ repo:
 git config user.name "Darren Jensen Contractor"
 git config user.email "darren.jensen@acontractor.com"
 ```
+### Git diff
 
-Get the diff between two commits
+If you have just made a commit, or want to see what has changed in the last commit compared to the current state use the following command. This will compare the HEAD with the commit immediately prior:
+
+```
+git diff HEAD^
+```
+
+To compare to the state of play 2 commits ago use:
+
+```
+git diff HEAD^^
+```
+
+Above from [this SO question](https://stackoverflow.com/questions/17244471/see-diff-between-current-state-and-last-commit/17244494).
+
+To compare the diff between two *specific* commits
 
 ```
 # Between 4ac0a673 and 5688b75
