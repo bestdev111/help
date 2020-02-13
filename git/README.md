@@ -52,6 +52,14 @@ Replace that version of the file in your wd
 git checkout 000a7a9a path/to/the/file.txt
 ```
 
+### Sort branches by latest commit timestamps
+
+Lets say you need to find out which branch has the laest code. Run the following using `git`.
+
+```
+git branch -a --sort=committerdate
+```
+
 ### Pushing to multiple git repos
 
 Taken from [this gist](https://gist.github.com/rvl/c3f156e117e22a25f242)
