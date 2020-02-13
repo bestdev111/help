@@ -120,3 +120,11 @@ Given the psql CLI connects to the database, the following general psql connecti
 ### Copy file from running container to local file system:
 
 `docker cp <containerId>:/file/path/within/container /host/path/target`
+
+### Build a new image from a Dockerfile
+
+To build a new image locally use `docker build` as follows
+
+```
+docker build -t name:v1 .
+```
