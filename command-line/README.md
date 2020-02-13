@@ -46,6 +46,8 @@
 
 `find ~/workspace -type d -empty` *Find all empty folders*
 
+`find . -name "*.js" -exec bash -c 'mv "$1" "$(sed "s/\.js$/.ts/" <<< "$1")"' - '{}' \;` *Change all filenames of .js to .ts
+
 `tac` *'cat' command in reverse! It dumps content of file in reverse*
 
 `tail` 	*shows the last 10 lines of a file*
