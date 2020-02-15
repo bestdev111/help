@@ -9,6 +9,14 @@ ruby --version
 ruby 2.6.4p104 (2019-08-28 revision 67798)
 ```
 
+## Simple HTTP Server
+
+Run a ruby WEBrick server from the command line:
+
+```
+ruby -run -ehttpd . -p8000
+```
+
 ## Binary Numbers
 
 Representing binary in Ruby terminal (prefix with `0b`)

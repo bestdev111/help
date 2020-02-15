@@ -95,3 +95,11 @@ Use LSB Release
 ```
 lsb_release -r
 ```
+
+## Simple HTTP Server
+
+Run a ruby WEBrick server from the command line:
+
+```
+ruby -run -ehttpd . -p8000
+```
