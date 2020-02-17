@@ -72,6 +72,7 @@ Setup remotes (the **origin** remote probably points to one of these URLs):
 
 ```
 # Just set one additional remote since we can assume the remote origin is already set to git@bitbucket.org:darren_jensen/hurdey-gurdey.git since that is where we cloned from
+
 git remote add rotati git@github.com:rotati/hurdey-gurdey.git
 ```
 
