@@ -14,7 +14,7 @@ ruby 2.6.4p104 (2019-08-28 revision 67798)
 Run a ruby WEBrick server from the command line:
 
 ```
-ruby -run -ehttpd . -p8000
+ruby -run -e httpd .
 ```
 
 ## Binary Numbers

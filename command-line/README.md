@@ -101,5 +101,5 @@ lsb_release -r
 Run a ruby WEBrick server from the command line:
 
 ```
-ruby -run -ehttpd . -p8000
+ruby -run -e httpd .
 ```
