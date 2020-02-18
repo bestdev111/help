@@ -40,6 +40,8 @@ Linking a local module into a local project
 
 For example, you want to load a locally cloned module into a local project so that you can easily test changes to that module
 
+Taken from [this article](https://medium.com/@alexishevia/the-magic-behind-npm-link-d94dcb3a81af)
+
 ```
 # Clone some random node module like randomstring!
 cd ~/Desktop
