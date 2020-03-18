@@ -103,3 +103,13 @@ Run a ruby WEBrick server from the command line:
 ```
 ruby -run -e httpd .
 ```
+
+## Start Brave in Incognito Mode from the command line
+
+Helps with debugging and/or getting Brave to actaully start if it keeps crashing!
+
+Solution found [here](https://community.brave.com/t/brave-crashes-constantly/101688/7).
+
+```
+open -a '/Applications/Brave Browser.app' --args --incognito
+```
