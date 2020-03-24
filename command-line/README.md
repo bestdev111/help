@@ -113,3 +113,17 @@ Solution found [here](https://community.brave.com/t/brave-crashes-constantly/101
 ```
 open -a '/Applications/Brave Browser.app' --args --incognito
 ```
+
+## Encode and Decode to / from Hexadecimal (Hex) - Base 16
+
+```
+# a string
+xxd -p <<< "Blockchain Developer"
+echo 426c6f636b636861696e20446576656c6f7065720a|xxd -r -p
+# a text file
+xxd -p hello.txt helloEncoded.txt
+xxd -p -r helloEncoded.txt helloDecoded.txt
+# an image
+xxd -p cat.png cat.txt
+xxd -p -r cat.txt catDecoded.png
+```
