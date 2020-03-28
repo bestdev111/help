@@ -35,3 +35,9 @@
 * `CMD + /` - comment out the current line
 
 * `CMD + [ or ]` - indent / un-indent current line based on filetype rules
+
+## Find / Text Search
+
+* `CMD + F` - find a string in current file.
+
+* `FN + F3` - move to the next occurance of matched string using the Find command as noted above.
