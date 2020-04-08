@@ -41,3 +41,5 @@
 * `CMD + F` - find a string in current file.
 
 * `FN + F3` - move to the next occurance of matched string using the Find command as noted above.
+
+* `CTRL + G` - goto a specific line
