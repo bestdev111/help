@@ -127,3 +127,9 @@ xxd -p -r helloEncoded.txt helloDecoded.txt
 xxd -p cat.png cat.txt
 xxd -p -r cat.txt catDecoded.png
 ```
+
+## Check SHA Digest of a file download
+
+```
+shasum -a 256 filename
+```
