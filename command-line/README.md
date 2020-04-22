@@ -133,3 +133,20 @@ xxd -p -r cat.txt catDecoded.png
 ```
 shasum -a 256 filename
 ```
+
+## Generate a random IOTA seed
+
+**Using the mac terminal**
+
+```
+cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
+```
+
+**Using a Python Script**
+
+```
+from random import SystemRandom
+alphabet = u'9ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+generator = SystemRandom()
+print(u''.join(generator.choice(alphabet) for _ in range(81)))
+```
