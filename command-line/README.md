@@ -150,3 +150,7 @@ alphabet = u'9ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 generator = SystemRandom()
 print(u''.join(generator.choice(alphabet) for _ in range(81)))
 ```
+
+** search in the terminal history
+
+`CTL + r`
