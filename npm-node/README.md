@@ -163,3 +163,9 @@ break   clear   editor  exit    help    load    save
   'dadou'
 ]
 ```
+
+### List ENV variables available to Node
+
+```js
+node -p "process.env"
+```
