@@ -6,6 +6,8 @@ By the way, here is a [markdown cheatsheet](https://github.com/adam-p/markdown-h
 
 ## Contents
 
+* [Ethereum](./ethereum)
+* [Bitcoin](./bitcoin)
 * [Bash Profile](./bash-profile)
 * [Command Line](./command-line)
 * [SSH](./ssh)
