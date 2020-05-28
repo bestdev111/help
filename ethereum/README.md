@@ -31,6 +31,8 @@ networks
 ```
 web3.eth.getNodeInfo() // Gets info about the node connected to
 web3.eth.getBlockNumber() // Gets the latest block number
+web3.eth.getBlock('latest') // Gets the latest block info
+web3.eth.getTransactionFromBlock(10) // Gets the transaction in block #
 ```
 
 ### Migrate contracts from a project
