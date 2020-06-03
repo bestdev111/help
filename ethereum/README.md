@@ -110,3 +110,10 @@ BN {
 
 '150000000000000000'
 ```
+
+### Get contract events in truffle console
+
+```
+var instance = await FlightSuretyApp.deployed()
+instance.getPastEvents('OracleRequest', {fromBlock: 6}, function(error, events){ console.log(events); })
+```
