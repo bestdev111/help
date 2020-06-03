@@ -86,3 +86,27 @@ debug 0x0de8a5ce364e86ea5e50d9c4f0df6faab0594a2ef222dafa39274f72dd0ef717
 ```
 web3.eth.getTransactionCount(accounts[0])
 ```
+
+### Convert BN (BigNumber) object to a readable value
+
+You may get a BN (BigNumber) object returned in the truffle console.
+To convert it to a readable string representation do the following:
+
+```
+> price = await i.starsForSale(1)
+
+undefined
+
+> price
+
+BN {
+  negative: 0,
+  words: [ 5177344, 20581667, 33, <1 empty item> ],
+  length: 3,
+  red: null
+}
+
+> price.toString(10) // convert the number to base 10 and return as a string
+
+'150000000000000000'
+```
