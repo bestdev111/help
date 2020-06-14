@@ -169,3 +169,9 @@ break   clear   editor  exit    help    load    save
 ```js
 node -p "process.env"
 ```
+
+### List all outdated modules
+
+```
+npm outdated
+```

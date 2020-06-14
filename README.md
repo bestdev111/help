@@ -8,6 +8,7 @@ By the way, here is a [markdown cheatsheet](https://github.com/adam-p/markdown-h
 
 * [Ethereum](./ethereum)
 * [Bitcoin](./bitcoin)
+* [VSCode](./vscode)
 * [Bash Profile](./bash-profile)
 * [Command Line](./command-line)
 * [SSH](./ssh)
