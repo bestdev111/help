@@ -117,3 +117,11 @@ BN {
 var instance = await FlightSuretyApp.deployed()
 instance.getPastEvents('OracleRequest', {fromBlock: 6}, function(error, events){ console.log(events); })
 ```
+
+### Add breakpoint in a separate contract while debugging
+
+This will place a breakpoint at line 4 for SquareLib.sol contract.
+
+```
+b SquareLib:5
+```
