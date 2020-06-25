@@ -72,6 +72,8 @@ See [Save Terminal Output to a File for details](https://askubuntu.com/questions
 
 `ln -s /path/to/original /path/to/link` *a better example of creating a symlink*
 
+`ln -s ../build/contracts vapp/contracts` *note the path of the original should be relative to the location of the link as shown.
+
 `ln -s "/path/to/the original" /path/to/link` *example of creating a symlink if there are spaces in the directory (basically surround with quotes)*
 
 `chmod a+wr /some/file` * enables /some/file to be read(r) and write(w) by all(a)
