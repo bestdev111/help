@@ -1,3 +1,10 @@
+### Install the correct version of Truffle
+
+```
+npm un -g truffle
+npm i -g truffle@nodeLTS
+```
+
 ### List available truffle console commands
 
 ```
