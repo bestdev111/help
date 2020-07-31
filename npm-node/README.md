@@ -18,6 +18,18 @@ List a specific global package (e.g. serverless)
 npm list -g serverless
 ```
 
+List available versions of a package:
+
+```
+npm view @openzeppelin/contracts versions
+```
+
+List / View details about a specific package (note `view`, `show` & `info` are all alias):
+
+```
+npm view @openzeppelin/contracts
+```
+
 Set the default version of node for the system (e.g. version 12.x)
 
 ```
