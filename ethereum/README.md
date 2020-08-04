@@ -132,3 +132,10 @@ This will place a breakpoint at line 4 for SquareLib.sol contract.
 ```
 b SquareLib:5
 ```
+
+### Load a contract via web3js api in the truffle console
+
+```
+artifact = require('./build/contracts/SimpleStore.json')
+meta = new web3.eth.Contract(artifact.abi, '0x7aa0b9C10E73E1732cBf84cEaE5635A39ab76E3B')
+```
