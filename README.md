@@ -15,6 +15,7 @@ By the way, here is a [markdown cheatsheet](https://github.com/adam-p/markdown-h
 * [Docker](./docker)
 * [VPN](./vpn)
 * [Python](./python)
+* [JavaScript](./javascript)
 * [Git](./git)
 * [Postgres](./postgres)
 * [zip](./zip)
