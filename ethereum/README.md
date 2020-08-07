@@ -139,3 +139,12 @@ b SquareLib:5
 artifact = require('./build/contracts/SimpleStore.json')
 meta = new web3.eth.Contract(artifact.abi, '0x7aa0b9C10E73E1732cBf84cEaE5635A39ab76E3B')
 ```
+
+### Using web3 in a node js repl
+
+```
+const Web3 = require('web3')
+web3 = new Web3('http://localhost:8545')
+web3.eth.getTransaction('0x37ee16fc9e1b471b9b3d6323cec1b899cb6c3340379b5c5d2ff28eed067ff10a').then((_tx) => tx = _tx)
+web3.eth.call({to: tx.to, data: tx.input}).then((e, r) => console.log(e))
+```
