@@ -187,3 +187,9 @@ node -p "process.env"
 ```
 npm outdated
 ```
+
+### Serve a folder over http
+
+```
+npx serve -s folder
+```
