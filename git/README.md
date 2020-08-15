@@ -28,6 +28,14 @@ To compare to the state of play 2 commits ago use:
 git diff HEAD^^
 ```
 
+Easiest way to see what was committed at a specific individual commit is to use the `git show` command liks so:
+
+```
+git show 6d0e09c
+```
+
+This will show you exactly what you commited at commit sha `6d0e09c` :)
+
 Above from [this SO question](https://stackoverflow.com/questions/17244471/see-diff-between-current-state-and-last-commit/17244494).
 
 To compare the diff between two *specific* commits
@@ -36,7 +44,7 @@ To compare the diff between two *specific* commits
 # Between 4ac0a673 and 5688b75
 git diff 5688b75..4ac0a673
 
-# Between working copy and 5688b75
+# Between working copy and 5688b75 (but **not including** 5688b75) so its likea diff from the commit *after* the one specified to HEAD (working copy)
 git diff 5688b75
 ```
 
