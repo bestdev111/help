@@ -12,6 +12,12 @@ Create a new app
 vue create my_app
 ```
 
+Open the Vue UI Dashboard
+
+```
+vue ui
+```
+
 The above process allows you to configure your app and add a number of plugins. If you want to add more plugins (e.g. Vuetify) then run the following command
 
 ```
@@ -41,3 +47,4 @@ Inspect a specific rule
 ```
 vue inspect --rule js
 ```
+
