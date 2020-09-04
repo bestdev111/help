@@ -24,6 +24,12 @@ C-b %
 C-b "
 ```
 
+### Kill / remove a pane
+
+```
+C-b x
+```
+
 ### Switching panes
 
 ```
