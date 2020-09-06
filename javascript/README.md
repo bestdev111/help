@@ -18,6 +18,18 @@ global
 
 One thing to note is when using `var` the variable is *hoisted*. This means that it will be set to `undefined` at the top of our execution context. This can sometimes cause the runtime output to be unpredicatable / unexpected. Its better to avoid that and use `comst` \ `let` instead.
 
+Another thing is `let` and `const` are **block scoped** rather than **function scoped**. So `let` and `const` are essentially block scoped alternatives to `var` for variabkle declaration. For example:
+
+```
+// Function scoped (on global context)
+if(2>1) { var secret = '12345'}
+console.log(secret) // > '12345'
+
+// Block scoped using let / const
+if(2>1) { let secret = '12345'}
+console.log(secret) // > ReferenceError: secret is not defined
+```
+
 ### Function Expression
 
 These functions are defined during *run* time. This is becuase anything declared using `var` keyword is hoisted and set to `undefined`.
@@ -72,4 +84,76 @@ function marry2(...args) {
 }
 
 marry2('Dadou', 'Jane')
+```
+
+### Use strict
+
+The `use strict` declaration acts as a helper to developers to avoid the pitfalls due to the early (bad/confusing) design decisions of javascript that often trip up developers. Adding it causes compiler errors rather than run time errors or runtime bugs!
+
+Put the `use strict` statement at the top of a file so the the JS engine will avoid global variable leakage issues and require that you define lexical variables using `var`, `let` or `const`.
+
+```
+'use strict'
+
+function wierd() {
+  height = 10
+}
+```
+
+Another thing use strict prevents is the use of the `this` key word within a function that belongs to the global scope:
+
+```
+function a() {
+  console.log(this) // global
+}
+
+function b() {
+  'use strict'
+  console.log(this) // undefined
+}
+```
+
+### IIFE - Immediately Invoked Function Expression
+
+Useful for creating a custom separate execution context - perhaps for booting an application or a library. Example:
+
+```
+(function() {
+  // code
+})();
+```
+
+To take the example further, in a namespeaced library you might use:
+
+```
+var fancylib = (function() {
+  function doSomethingFancy() {
+    return 'looking good!'
+  }
+  return {
+    doSomethingFancy: doSomethingFancy
+  }
+})()
+
+// Use like so:
+fancylib.doSomethingFancy()
+```
+### this keyword
+
+The main two reasons for the `this` keyword are:
+
+1. Gives methods access to their containing object
+1. Execute same code for miltiple objects
+
+The `this` keyword refers to whatever the function belongs to. So just typing `this` in an empty file refers to the global context. In an object it refers to the object like so:
+
+```
+const obj = {
+  name: 'Darren',
+  sing() {
+    return 'lalala ' + this.name // this is the instance of obj
+  }
+}
+
+obj.sing() // lalala Darren
 ```
