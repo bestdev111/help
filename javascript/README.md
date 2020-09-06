@@ -206,6 +206,6 @@ The way to fix this is to use arrow function notation:
 
 ```
 var anotherFunc = () => {
-      console.log('b', this)
-    }
+  console.log('b', this)
+}
 ```
