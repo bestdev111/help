@@ -152,8 +152,60 @@ const obj = {
   name: 'Darren',
   sing() {
     return 'lalala ' + this.name // this is the instance of obj
+  },
+  singAgain() {
+    return this.sing() + '!!'
   }
 }
 
 obj.sing() // lalala Darren
+obj.singAgain() // lalala Darren !!
+```
+
+The second property we can write a function once using `this` and wherever it is run will determin what `this` is! Example:
+
+```
+function importantPserson() {
+  return this.name
+}
+
+obj1 = {
+  name: 'Darren',
+  importantPserson: importantPserson
+}
+
+obj2 = {
+  name: 'Mike',
+  importantPserson: importantPserson
+}
+
+obj1.importantPserson() // Darren
+obj2.importantPserson() // Mike
+```
+
+IMPORTANT: `this` is not lexically scoped its dynamically scoped meaning it based on where it is called. See this example:
+
+```
+const obj = {
+  name: 'Dadou',
+  sing() {
+    console.log('a', this)
+    var anotherFunc = function() {
+      console.log('b', this)
+    }
+    anotherFunc()
+  }
+}
+
+obj.sing() // a: obj scope, b: global scope (!!)
+```
+
+We see that the scope of `this` when `anotherFunc` is called is surprisingly the global scope! Its due to the fact that the `this` keyword is dynamically scoped. So `sing()` is called on the obj and `anotherFunc` is called within sing which binds this to the global scope!
+
+The way to fix this is to use arrow function notation:
+
+```
+var anotherFunc = () => {
+      console.log('b', this)
+    }
 ```
