@@ -209,3 +209,56 @@ var anotherFunc = () => {
   console.log('b', this)
 }
 ```
+
+### call() apply() bind()
+
+Use `call()` and `apply()` to 'borrow' a function from another object. For example:
+
+```
+const wizard = {
+  name: 'Dumbledore',
+  health: 100,
+  heal() {
+    return this.health +=100;
+  }
+}
+
+const archer = {
+  name: 'Robin Hood',
+  health: 30
+}
+
+wizard.heal()
+// Here we call the wizards heal function using call and pass in the archer so that he is healed
+wizard.heal.call(archer)
+```
+
+If the function has params these can be passed in too. Apply is the same as call but takes its parms as an array:
+
+```
+const wizard = {
+  name: 'Dumbledore',
+  health: 100,
+  heal(a,b) {
+    return this.health +=100 + a + b;
+  }
+}
+
+wizard.heal.call(archer, 10, 20)
+wizard.heal.apply(archer, [10, 20])
+```
+
+### function currying
+
+Currying refers to giving a function just a partial set of parameters so that you can create more specific versions of the same function for use later on.
+
+For example:
+
+```
+function multiply(a,b) {
+  return a*b
+}
+
+const multiplyByTwo = multiply.bind(this,2)
+multiplyByTwo(4)
+```
