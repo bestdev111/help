@@ -262,3 +262,126 @@ function multiply(a,b) {
 const multiplyByTwo = multiply.bind(this,2)
 multiplyByTwo(4)
 ```
+
+### Clone objects
+
+Its necessary to use `Object.assign` (or the spread operator) to clone objects since objects are passed by reference in Javascript.
+
+```
+let obj = {a: 'a', b: 'b', c: 'c'}
+let clone = Object.assign({}, obj)
+
+// Now obj and clone are separate objects
+obj.c = 5
+clone.c = 10
+```
+
+Using the spread operator
+
+```
+let clone = {...obj}
+```
+
+### Deep clone of objects
+
+The above is just a shallow clone. A deep clone can be achived in the following way:
+
+```
+let deepClone = JSON.parse(JSON.stringify(obj))
+```
+
+### Clone arrays
+
+Its necessary to use `array.concat` (or the spread operator) to make a copy of an array since arrays are objects and objects are passed by reference in Javascript.
+
+```
+let arrA = [1,2,3]
+let arrB = arrA.concat([])
+
+arrA.push(1600050000)
+arrB.push(1800000000)
+
+console.log(arrA)
+console.log(arrB)
+```
+
+Using the spread operator also works like this:
+
+```
+let arrB = [...arrA]
+```
+
+### Closures
+
+A closeure is a fucntion that keeps its scope available for future invokation:
+
+```
+const foo = (string) => (name1) => (name2)=> { console.log(`${string} ${name1} ${name2}`) }
+
+foo('hi')('darren')('nesnej')
+
+const fooString = foo('hi')
+// fooString is a clousere with the string param set
+
+// it can be called anytime like this:
+fooString('darren')('nesnej')
+```
+
+Classic example. Note if we change var to let above then the let keyword creates a variable scope for the variable and fixies the issue.
+
+```
+// hete the output will be 4,4,4,4
+const array = [1,2,3,4];
+for(var i=0; i < array.length; i++) {
+  setTimeout(function(){
+    console.log('I am at index ' + i)
+  }, 3000)
+}
+```
+Of couerse, another way to fix this is wtih closures:
+
+```
+// here the output is as expected 1,2,3,4
+const array = [1,2,3,4];
+for(var i=0; i < array.length; i++) {
+  (function(closureI) {
+    setTimeout(function(){
+      console.log('I am at index ' + array[closureI])
+    }, 3000)
+  })(i)
+}
+```
+
+### Prototypal Inheritance
+
+Use `__proto__` to add to the chain - this is just for an example. There are more efficient ways of doing this (see later).
+
+```
+let dragon = {
+  name: 'Tanya',
+  fire: true,
+  fight() {
+    return 5
+  },
+  sing() {
+    if (this.fire) {
+      return `I am ${this.name}, the breather of fire`
+    }
+  }
+}
+
+let lizard = {
+  name: 'Kiki',
+  fight() {
+    return 1
+  }
+}
+
+// Don't do this, bad performance. Show with bind.
+lizard.__proto__ = dragon;
+dragon.isPrototypeOf(lizard);
+console.log(lizard.fire)
+console.log(lizard.sing())
+const lizardFire =dragon.sing.bind(lizard)
+console.log(lizardFire())
+```
