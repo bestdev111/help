@@ -531,3 +531,26 @@ const person4 = {
 
 person4.hi()
 ```
+
+### Inheritance
+
+Using the `extends` keyword and the `super` keyword in the consttructor function we are able to create inheritance like so:
+
+```
+class Character {
+  constructor(name, weapon) {
+    this.name = name;
+    this.weapon = weapon;
+  }
+  attack() {
+    return 'atack with ' + this.weapon
+  }
+}
+
+class Elf extends Character {
+  constructor(name, weapon, type) {
+    super(name, weapon)
+    this.type = type;
+  }
+}
+```
