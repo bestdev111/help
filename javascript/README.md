@@ -426,6 +426,25 @@ console.log([1,2,3].map())
 
 ```
 
+### Object.create
+
+Use `Object.create` to create the `__proto__` link between hierarchay of objects.
+
+```
+const elfFunctions = {
+  attack: function() {
+    return 'atack with ' + this.weapon
+  }
+}
+function createElf(name, weapon) {
+  //Object.create creates __proto__ link
+  newElf = Object.create(elfFunctions)
+  newElf.name = name;
+  newElf.weapon = weapon
+  return newElf
+}
+```
+
 ### Constructor Functions
 
 Are just like constructors that you might normally see in an OO `Class` definition. Some considerations are that Constructor Functions in JavaScript do not have a `return` statement and must always start with a capital letter so that its clear to other developers that this is a constructor function and needs to be called with `new`.
@@ -460,4 +479,55 @@ class Elf {
     return 'atack with ' + this.weapon
   }
 }
+```
+
+### this keyword bindings
+
+4 ways to bind the `this` keyword.
+
+```
+// new binding
+function Person(name, age) {
+  this.name = name;
+  this.age =age;
+  console.log(this);
+}
+
+const person1 = new Person('Xavier', 55)
+
+//implicit binding
+const person = {
+  name: 'Karen',
+  age: 40,
+  hi() {
+    console.log('hi' + this.name)
+  }
+}
+
+person.hi()
+
+//explicit binding
+const person3 = {
+  name: 'Karen',
+  age: 40,
+  hi: function() {
+    console.log('hi' + this.setTimeout)
+  }.bind(window)
+}
+
+person3.hi()
+
+// arrow functions (lexically bind and without it 'this' would be the window object)
+const person4 = {
+  name: 'Karen',
+  age: 40,
+  hi: function() {
+    var inner = () => {
+      console.log('hi ' + this.name)
+    }
+    return inner()
+  }
+}
+
+person4.hi()
 ```
