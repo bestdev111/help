@@ -425,3 +425,39 @@ Array.prototype.map = function()  { // what happens with arrow function here?
 console.log([1,2,3].map())
 
 ```
+
+### Constructor Functions
+
+Are just like constructors that you might normally see in an OO `Class` definition. Some considerations are that Constructor Functions in JavaScript do not have a `return` statement and must always start with a capital letter so that its clear to other developers that this is a constructor function and needs to be called with `new`.
+
+```
+//Constructor Functions
+function Elf(name, weapon) {
+  this.name = name;
+  this.weapon = weapon;
+}
+
+Elf.prototype.attack = function() {
+  return 'atack with ' + this.weapon
+}
+
+const sam = new Elf('Sam', 'bow');
+const peter = new Elf('Peter', 'bow');
+sam.attack()
+```
+
+### ES6 Classes
+
+Syntactic sugar classes in Javascript.
+
+```
+class Elf {
+  constructor(name, weapon) {
+    this.name = name;
+    this.weapon = weapon;
+  }
+  attack() {
+    return 'atack with ' + this.weapon
+  }
+}
+```
