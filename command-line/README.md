@@ -86,6 +86,14 @@ See [Save Terminal Output to a File for details](https://askubuntu.com/questions
 
 `dig -t MX rotati.tech` * lookup a specific DNS entry i.e. MX records
 
+## Grep
+
+Search for something except in one folder (e.g. node_modules)
+
+```
+grep -R --exclude-dir=node_modules 'some pattern' /path/to/search
+```
+
 ## Copy contents to clipboard
 
 cat ~/.bashrc | pbcopy
