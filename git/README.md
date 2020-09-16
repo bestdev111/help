@@ -158,7 +158,7 @@ git push origin +branch_name
 git branch -d branch_name
 
 # To delete a remote branch
-git push <remote_name> --delete <branch_name>
+git push <remote_name> -d <branch_name>
 ```
 
 ## Fork a Github repo to Gitlab
