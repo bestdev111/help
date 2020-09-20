@@ -641,7 +641,7 @@ fetchUsers()
 Below is an example using the multiple url fetching example from above:
 
 ```
-async function getData () {
+async function getData() {
   const [ users, posts, albums ] = await Promise.all(urls.map(url =>
     fetch(url).then(resp => resp.json())
   ))
@@ -652,3 +652,6 @@ async function getData () {
 
 getData()
 ```
+
+### Object spread operator
+
