@@ -735,6 +735,23 @@ parallel().then(console.log)
 race().then(console.log)
 ```
 
+### Handling errors in Async / Await using Try / Catch blocks
+
+**Always** use try/catch blocks in your Async / Await code! For example:
+
+```
+(async function() {
+  try {
+    await Promise.reject('oopsie')
+  } catch (err) {
+    console.error(err)
+  }
+  console.log('This is still good!')
+})()
+```
+
+If you don't have the catch then you will see `UnhandledPromiseRejectionWarning` when running this in Node JS.
+
 ### Modules
 
 In JS applications there is scope which is structured like so:
@@ -817,3 +834,4 @@ Example usage (import the default and the non-defaults):
 ```
 import fight, { jump } from 'script'
 ```
+
