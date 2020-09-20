@@ -734,3 +734,86 @@ sequence().then(console.log)
 parallel().then(console.log)
 race().then(console.log)
 ```
+
+### Modules
+
+In JS applications there is scope which is structured like so:
+
+* Global Scope
+* * Module Scope
+* * * Function Scope
+* * * * Block Scope (let / const)
+
+### Revealing module pattern
+
+Below is what was done before the introduction of modules in JS:
+
+```
+var globalParams = 'other modules, variables, data etc...'
+
+var myModule = (function() {
+  var harry = 'potter'
+  var vold = 'mort'
+
+  function fight(char1, char2) {
+    return `Hahaha ${char1} wins!`
+  }
+  // note we only export / return the fight function and keep everything else private
+  return {
+    fight: fight
+  }
+})(params) // note how we can pass in params to the scope and keep it separate from global
+
+myModule.fight('dadou', 'nesnej')
+```
+
+### CommonJS
+
+This is a way to require modules that loads them in syncronously. This makes it more useful with Node JS and looks like this:
+
+```
+var module1 = require('module1') //.fight optionally select the methods
+
+function myFunction() {}
+
+module.exports = {
+  fn: myFunction
+}
+```
+
+To use CommonJS in a browser / web app, developers would typically use [browerify](http://browserify.org/) or [webpack](https://webpack.js.org/) to bundle all the modules together into a single `bundle.js` file that has the dependencies already correctly managed within.
+
+So when writing Node JS apps that run on a server or desktop (i.e. not in a browser) then we will use the CommonJS approach.
+
+### ES6 modules
+
+In your module file, use the [`export` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) or `export default` statement for the items you want to make available to others from your module.
+
+In the consuming file, use the [`import` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import the desired items from your module.
+
+Example module (called script.js)
+
+```
+const harry = 'potter'
+const voldmort = 'he who cannot be named'
+
+export function jump() {
+  return 'high!'
+}
+
+export default function fight(char1, char2) {
+  return 'who will win?'
+}
+```
+
+Example usage (import the default only):
+
+```
+import fight from 'script'
+```
+
+Example usage (import the default and the non-defaults):
+
+```
+import fight, { jump } from 'script'
+```
