@@ -653,5 +653,34 @@ async function getData() {
 getData()
 ```
 
-### Object spread operator
+### Spread operators
+
+With array spread operators we can do this:
+
+```
+arr = [1,2,3,4,5]
+
+function add(a,b,c,d,e) {
+  return a+b+c+d+e;
+}
+
+add(...arr)
+```
+
+With Object spread operators we can do this:
+
+```
+animals = {
+  monkey: 1,
+  bird: 20,
+  tiger: 6,
+  lion: 8
+}
+
+const { monkey, ...rest } = animals
+
+console.log(monkey) // 1
+console.log(rest) // { bird: 20, tiger: 6, lion: 8}
+```
+
 
