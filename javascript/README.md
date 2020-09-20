@@ -554,3 +554,101 @@ class Elf extends Character {
   }
 }
 ```
+
+### Promises
+
+Promises act as an improvment on callbacks.
+
+A basic promise definition looks like this:
+
+```
+promise = new Promise((resolve, reject) => {
+  if(true) {
+    resolve('Hi')
+  } else {
+    reject('Error!')
+  }
+})
+```
+
+A promise is called with the `then` function and also optionally with a `catch`. Promises can also be changed with multiple calls to then, as you can see below:
+
+```
+promise
+  .then((result) => result + '!')
+  .then((result) => result + '?')
+  .then(console.log) // 'Hi!?'
+  .catch(console.error('Something went wrong'))
+```
+
+Resolving in multiple promises using `Promise.all`. In the blow example, all the promises must complete before being returned as an array of results. So in this case, even though promise1 completes in 1 second, the output will resolve in 3 seconds because of promise2. Thank.
+
+```
+promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 1000, 'Ello?')
+})
+
+promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 3000, 'Ello, My Friend??')
+})
+
+Promise.all([promise1, promise2])
+  .then(console.log) //[ 'Ello?', 'Ello, My Friend??' ]
+```
+
+### Fetch API Example
+
+The browser [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is promise based and works just the same way, for example:
+
+```
+fetch('https://jsonplaceholder.typicode.com/todos/10')
+  .then(response => response.json())
+  .then(json => console.log(json))
+```
+
+If need to fetch data from several APIs, then it is possible like so:
+
+```
+urls = [
+  'https://jsonplaceholder.typicode.com/users',
+  'https://jsonplaceholder.typicode.com/posts',
+  'https://jsonplaceholder.typicode.com/albums'
+]
+
+Promise.all(urls.map(url =>
+  fetch(url).then(resp => resp.json())
+)).then(array => {
+  console.log('Users: ', array[0])
+  console.log('Posts: ', array[1])
+  console.log('Albums: ', array[2])
+})
+```
+
+### Async / Await
+
+Async / Await is part of ES8 and is built on top of `Promises` (see above). Below is an example of using the same Fetch API example above using Async / Await:
+
+```
+async function fetchUsers() {
+  const resp = await fetch('https://jsonplaceholder.typicode.com/users')
+  const data = await resp.json()
+  console.log(data)
+}
+
+fetchUsers()
+```
+
+Below is an example using the multiple url fetching example from above:
+
+```
+async function getData () {
+  const [ users, posts, albums ] = await Promise.all(urls.map(url =>
+    fetch(url).then(resp => resp.json())
+  ))
+  console.log('Users ', users)
+  console.log('Posts ', posts)
+  console.log('Albums ', albums)
+}
+
+getData()
+```
