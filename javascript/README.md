@@ -555,6 +555,36 @@ class Elf extends Character {
 }
 ```
 
+### Spread operators
+
+With array spread operators we can do this:
+
+```
+arr = [1,2,3,4,5]
+
+function add(a,b,c,d,e) {
+  return a+b+c+d+e;
+}
+
+add(...arr)
+```
+
+With Object spread operators we can do this:
+
+```
+animals = {
+  monkey: 1,
+  bird: 20,
+  tiger: 6,
+  lion: 8
+}
+
+const { monkey, ...rest } = animals
+
+console.log(monkey) // 1
+console.log(rest) // { bird: 20, tiger: 6, lion: 8}
+```
+
 ### Promises
 
 Promises act as an improvment on callbacks.
@@ -653,34 +683,54 @@ async function getData() {
 getData()
 ```
 
-### Spread operators
+### For await of
 
-With array spread operators we can do this:
+Allows to loop through an array of promises. Below is an example:
 
 ```
-arr = [1,2,3,4,5]
+// use the urls array from above example..
+const getData = async function() {
+  const arrayOfPromises = urls.map(url => fetch(url))
+  for await (let request of arrayOfPromises) {
+    const data = await request.json()
+    console.log(data)
+  }
+}
+```
+### Parallel / Sequential / Race Promise operations
 
-function add(a,b,c,d,e) {
-  return a+b+c+d+e;
+A full example below showing each type of execution
+
+```
+const promisify = (item, delay) =>
+  new Promise((resolve) =>
+    setTimeout(() =>
+      resolve(item), delay));
+
+const a = () => promisify('a', 100);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+
+async function parallel() {
+  const promises = [a(), b(), c()];
+  const [output1, output2, output3] = await Promise.all(promises);
+  return `prallel is done: ${output1} ${output2} ${output3}`
 }
 
-add(...arr)
-```
-
-With Object spread operators we can do this:
-
-```
-animals = {
-  monkey: 1,
-  bird: 20,
-  tiger: 6,
-  lion: 8
+async function race() {
+  const promises = [a(), b(), c()];
+  const output1 = await Promise.race(promises);
+  return `race is done: ${output1}`;
 }
 
-const { monkey, ...rest } = animals
+async function sequence() {
+  const output1 = await a();
+  const output2 = await b();
+  const output3 = await c();
+  return `sequence is done ${output1} ${output2} ${output3}`
+}
 
-console.log(monkey) // 1
-console.log(rest) // { bird: 20, tiger: 6, lion: 8}
+sequence().then(console.log)
+parallel().then(console.log)
+race().then(console.log)
 ```
-
-
