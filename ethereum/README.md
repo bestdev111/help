@@ -148,3 +148,20 @@ web3 = new Web3('http://localhost:8545')
 web3.eth.getTransaction('0x37ee16fc9e1b471b9b3d6323cec1b899cb6c3340379b5c5d2ff28eed067ff10a').then((_tx) => tx = _tx)
 web3.eth.call({to: tx.to, data: tx.input}).then((e, r) => console.log(e)).catch((e) => console.log("Looks like a problem: ", e.message))
 ```
+
+### Recover / Export a Private Key from a Geth Keystore file
+
+```
+// to use this utility point the `datadir` to the parent folder of the
+// geth keybase directory, set the password and the address and run the file
+// `node utils/export-pk`
+
+var keythereum = require("keythereum");
+var datadir = "./";
+const password = "mypass";
+let address = '0x123...'
+
+var keyObject = keythereum.importFromFile(address, datadir);
+var privateKey = keythereum.recover(password, keyObject);
+console.log(privateKey.toString('hex'));
+```
