@@ -164,3 +164,33 @@ print(u''.join(generator.choice(alphabet) for _ in range(81)))
 ** search in the terminal history
 
 `CTL + r`
+
+### Disk I/O speedtest
+
+**Disk Write**
+
+dd if=/dev/zero of=/mnt/speedtest/deleteme.dat bs=32M count=64 oflag=direct
+
+**Disk Read**
+
+dd if=/mnt/speedtest/deleteme.dat of=/dev/null bs=32M count=64 iflag=direct
+
+### View full system architecture
+
+Nice shortcut command to view linux system architecture:
+
+```
+lscpu
+```
+
+### Create a file fingerprint (MD5)
+
+```
+mdf file
+```
+
+### Create a file fingerprint (sha1sum)
+
+```
+sha1sum file
+```
