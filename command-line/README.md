@@ -194,3 +194,19 @@ mdf file
 ```
 sha1sum file
 ```
+
+### Speedtest using just python
+
+```
+curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
+```
+
+### Check if the disk is a HDD or a SSD
+
+If the following command returns a 1 then it is a spinning disk (HDD) and if it returns 0 its an SSD.
+
+```
+cat /sys/block/sda/queue/rotational
+```
+
+Note sometimes you might need to replace `sda` with `sdb`.
