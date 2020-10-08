@@ -210,3 +210,10 @@ cat /sys/block/sda/queue/rotational
 ```
 
 Note sometimes you might need to replace `sda` with `sdb`.
+
+You can alternaively use this command:
+
+```
+lsblk -d -o name,rota
+
+```
