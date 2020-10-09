@@ -94,6 +94,12 @@ Search for something except in one folder (e.g. node_modules)
 grep -R --exclude-dir=node_modules 'some pattern' /path/to/search
 ```
 
+Exlude multiple directories using a Glob:
+
+```
+grep -r oscar --exclude-dir={node_modules,.webpack} .
+```
+
 ## Copy contents to clipboard
 
 cat ~/.bashrc | pbcopy
