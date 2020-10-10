@@ -165,3 +165,108 @@ var keyObject = keythereum.importFromFile(address, datadir);
 var privateKey = keythereum.recover(password, keyObject);
 console.log(privateKey.toString('hex'));
 ```
+
+### String comparison using keccak256
+
+Solidity doesn't have native string comparison, so we compare their keccak256 hashes to see if the strings are equal:
+
+```
+// check the _name param is the same as 'DADOU'
+require(keccak256(abi.encodePacked(_name)) == keccak256(abi.encodePacked("DADOU")));
+``
+
+### Time in solidity
+
+Solidity also contains the time units seconds, minutes, hours, days, weeks and years. These will convert to a uint of the number of seconds in that length of time. So 1 minutes is 60, 1 hours is 3600 (60 seconds x 60 minutes), 1 days is 86400 (24 hours x 60 minutes x 60 seconds), etc.
+
+```
+uint lastUpdated;
+
+// Set `lastUpdated` to `now`
+function updateTimestamp() public {
+  lastUpdated = now;
+}
+
+// Will return `true` if 5 minutes have passed since `updateTimestamp` was
+// called, `false` if 5 minutes have not passed
+function fiveMinutesHavePassed() public view returns (bool) {
+  return (now >= (lastUpdated + 5 minutes));
+}
+```
+
+### Passing structs and arrays by reference to other functions as storage
+
+You can pass a storage pointer to a struct as an argument to a private or internal function. This is useful, for example, for passing around our Zombie structs between functions.
+
+```
+function _doStuff(Zombie storage _zombie) internal {
+  // do stuff with _zombie
+}
+```
+
+### Function modifiers with arguments
+
+```
+// Modifier that requires this user to be older than a certain age:
+modifier olderThan(uint _age, uint _userId) {
+  require(age[_userId] >= _age);
+  _;
+}
+
+// Must be older than 16 to drive a car (in the US, at least).
+// We can call the `olderThan` modifier with arguments like so:
+function driveCar(uint _userId) public olderThan(16, _userId) {
+  // Some function logic
+}
+```
+
+### Calldata data location
+
+`Calldata` is somehow similar to `memory`, but it's only available to external functions.
+
+```
+function changeName(uint _zombieId, string calldata _newName) external aboveLevel(2, _zombieId) {};
+```
+
+### Function modifiers
+
+* **private** means it's only callable from other functions inside the contract;
+* **internal** is like private but can also be called by contracts that inherit from this one;
+* **external** can only be called outside the contract;
+* **public** can be called anywhere, both internally and externally.
+
+### State modifiers
+
+* **view** tells us that by running the function, no data will be saved/changed.
+* **pure*** tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain.
+
+Both of these don't cost any gas to call if they're called externally from outside the contract (but they do cost gas if called internally by another function).
+
+### Withdraw ether function
+
+Example of a function to withdraw ether from a smart contrqact.
+
+```
+contract GetPaid is Ownable {
+  function withdraw() external onlyOwner {
+    address payable _owner = address(uint160(owner()));
+    _owner.transfer(address(this).balance);
+  }
+}
+```
+
+### Random numbers
+
+Example below using `keccak256`. Note, of course, this method is vulnerable to attack by a dishonest node.
+
+```
+// Generate a random number between 1 and 100:
+uint randNonce = 0;
+uint random = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;
+randNonce++;
+uint random2 = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;
+```
+
+How could this be exploited?
+
+If I were running a node, I could publish a transaction only to my own node and not share it. I could then run the coin flip function (for example) to see if I won — and if I lost, choose not to include that transaction in the next block I'm solving. I could keep doing this indefinitely until I finally won the coin flip and solved the next block, and profit.
