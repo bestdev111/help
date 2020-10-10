@@ -270,3 +270,9 @@ uint random2 = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 1
 How could this be exploited?
 
 If I were running a node, I could publish a transaction only to my own node and not share it. I could then run the coin flip function (for example) to see if I won — and if I lost, choose not to include that transaction in the next block I'm solving. I could keep doing this indefinitely until I finally won the coin flip and solved the next block, and profit.
+
+### Generate MD5 of all .sol files in a contracts directory
+
+```
+find contracts -name *.sol -exec md5 {} \;
+```
