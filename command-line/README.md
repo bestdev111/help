@@ -248,3 +248,11 @@ chown --recursive "${USERNAME}":"${USERNAME}" "${home_directory}/.ssh"
 sed --in-place 's/^PermitRootLogin.*/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
 if sshd -t -q; then systemctl restart sshd fi
 ```
+
+### Hostname
+
+Change the hostname on Ububtu:
+
+```
+hostnamectl set-hostname viveks-laptop
+```
