@@ -256,3 +256,18 @@ Change the hostname on Ububtu:
 ```
 hostnamectl set-hostname viveks-laptop
 ```
+
+### Using rsync to copy data from machine to machine
+
+Lets say you have two EC2 instances and one has some data on epemeral storage that you want to copy over to another instance that has EBS storage. Then the `rsync` command can come to your rescue!
+
+The below command will sync/copy all data from the source computer @hostname folder `/source/folder/` to the destination computer (which is where you run this command - on the destination computer) folder `/destination/folder/`.
+
+NOTE: `rsync` uses SSH protocol so you need to
+
+1. Add the public key of the destination computer TO the _source computers_ `~/.ssh/authorized_keys` file
+1. Whitelist the Private IP address of the destination computer in the *Inbound Security Group Settings* for the _source computer_.
+
+```
+rsync -avzlh --stats username@hostname:/source/folder/  /destination/folder/ > /var/log/rsync-status.log
+```
