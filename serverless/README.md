@@ -280,10 +280,10 @@ Now create the following file **mocks/hello.json** which we will use to invoke t
 Now test this function locally.
 
 ```
-sls invoke -f hello --path mocks/hello.json
+sls invoke local -f hello --path mocks/hello.json
 ```
 
-Now update the service in AWS with these changes (below is how you can deploy a single function rather than the entire stack):
+If the function is working, go ahead and update the service in AWS with these changes (below is how you can deploy a single function rather than the entire stack):
 
 ```
 sls deploy -f hello
