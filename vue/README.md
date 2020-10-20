@@ -6,6 +6,12 @@ Install the Vue CLI globally
 npm install -g @vue/cli@latest
 ```
 
+Update the Vue CLI
+
+```
+npm update -g @vue/cli
+```
+
 Create a new app
 
 ```
@@ -47,4 +53,3 @@ Inspect a specific rule
 ```
 vue inspect --rule js
 ```
-

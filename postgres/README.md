@@ -2,7 +2,7 @@
 
 `psql -U postgres`
 
-Display server version
+### Display server version
 
 ```
 postgres=# SHOW SERVER_VERSION;
@@ -12,26 +12,38 @@ postgres=# SHOW SERVER_VERSION;
 (1 row)
 ```
 
-Display current database
+### Display current database
 
 `SELECT current_database();`
 
-List databases
+### List databases
 
 `\l`
 
-Connect to a database called mydb
+### Connect to a database called mydb
 
 `\c mydb;`
 
-List tables in database
+### List tables in database
 
 `\d`
 
-List schemas in database
+### List schemas in database
 
 `\dn`
 
-List all tables in a schema (e.g. 'demo')
+### List all tables in a schema (e.g. 'demo')
 
 `\dt demo.`
+
+### Create a new database
+
+`CREATE DATABASE dbname;`
+
+...or can use the postgres cli:
+
+`createdb dbname`
+
+### Switch to or connect to a different database
+
+`\c dbname`
