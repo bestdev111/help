@@ -422,7 +422,8 @@ Install the crypto-js libraray: `npm install crypto-js --save`
 Copy the following helper function into your project:
 
 ```
-const { sigV4Client } = require('sigV4Client') // assuming you have copied sigV4Client in the same directory
+// assuming you have copied sigV4Client.js in the same directory as this helper
+const { sigV4Client } = require('sigV4Client')
 
 async function invokeApig({
   path,
@@ -449,9 +450,6 @@ async function invokeApig({
 
   body = body ? JSON.stringify(body) : body;
   headers = signedRequest.headers;
-
-  console.log('*** signedRequest.headers', signedRequest.headers)
-  console.log('*** signedRequest.url', signedRequest.url)
 
   const results = await fetch(signedRequest.url, {
     method,
