@@ -372,3 +372,105 @@ resources:
   # S3
   - ${file(resources/s3-bucket.yml)}
 ```
+
+### Add IAM service policies
+
+THe `iamRoleStatements` section of the `serverless` file  defines the permission policy for the Lambda function. These will be created under IAM -> Roles in the AWS Console and will be named related to the service, stage and role e.g. 'referral-api-dev-lambda'.
+
+Add the following IAM policy which will allow:
+
+* All actions to be performed on dynamodb
+* S3 objects to be fetched via GetObject
+* Lambda functions to be invoked.
+
+More over the reources allowed are:
+
+* The `ReferralsTable` as defined in the DynamoDb resource
+* The `ReferralsCountTable` as defined in the DynamoDb resource
+* The `AttachmentsBucket` as defined in the S3 resource
+
+```
+iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+        - s3:GetObject
+        - lambda:InvokeFunction
+        - lambda:InvokeAsync
+      Resource:
+        - "Fn::GetAtt": [ ReferralsTable, Arn ]
+        - "Fn::GetAtt": [ ReferralsCountTable, Arn ]
+        - Fn::Join: ['', [Fn::GetAtt: [ AttachmentsBucket, Arn ], '/*'] ]
+```
+
+### Calling an IAM Authorized API Gateway endpoint
+
+There are several ways of doing this depending on your usecase:
+
+* Testing you can use [Postman](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-use-postman-to-call-api.html) or the [AWS Console](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html)
+* In a client that uses Cognito like a mobile or web app, then use [AWS Amplify](https://docs.amplify.aws/lib/restapi/getting-started/q/platform/js) which integrates nicely with Cognito to provide session based authentication.
+* In a standalone client, for exmple a service use the [sigV4Client.js](https://raw.githubusercontent.com/AnomalyInnovations/sigV4Client/master/sigV4Client.js) with the [crypto-js](https://www.npmjs.com/package/crypto-js) library. This is the best approach (for a standalone client) since it just requires one file to be copied over and one libary to be installed.
+
+### Example of using in a standalone client
+
+Here are the details of how you might go about that:
+
+Copy the [sigV4Client.js](https://raw.githubusercontent.com/AnomalyInnovations/sigV4Client/master/sigV4Client.js) file into your project.
+
+Install the crypto-js libraray: `npm install crypto-js --save`
+
+Copy the following helper function into your project:
+
+```
+const { sigV4Client } = require('sigV4Client') // assuming you have copied sigV4Client in the same directory
+
+async function invokeApig({
+  path,
+  method = "GET",
+  headers = {},
+  queryParams = {},
+  body
+}) {
+  const signedRequest = sigV4Client
+    .newClient({
+      accessKey: YOUR_ACCESS_KEY_ID,
+      secretKey: YOUR_SECRET_KEY_ID,
+      // sessionToken: '', // only required when using temp credentials
+      region: YOUR_AWS_REGION
+      endpoint: YOUR_APIG_ENDPOINT
+    })
+    .signRequest({
+      method,
+      path,
+      headers,
+      queryParams,
+      body
+    });
+
+  body = body ? JSON.stringify(body) : body;
+  headers = signedRequest.headers;
+
+  console.log('*** signedRequest.headers', signedRequest.headers)
+  console.log('*** signedRequest.url', signedRequest.url)
+
+  const results = await fetch(signedRequest.url, {
+    method,
+    headers,
+    body
+  });
+
+  if (results.status !== 200) {
+    throw new Error(await results.text());
+  }
+
+  return results.json();
+}
+
+exports.invokeApig = invokeApig
+```
+
+You can use this helper in your main app as follows:
+
+```
+let response = await invokeApig({path: '/yourpath'})
+```
