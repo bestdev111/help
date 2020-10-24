@@ -2,8 +2,6 @@
 
 `sudo su` elevate to sudo user permanently (without password)
 
-`du -skh *` check the size of files and folders in the current directory
-
 `sed -i -e 's/"Amazon"/"Postgres"/g' appsettings.json` * find and replace a value in a file
 
 `dpkg -l libgdiplus` * check if the libgdiplus is installed on the server
@@ -85,6 +83,20 @@ See [Save Terminal Output to a File for details](https://askubuntu.com/questions
 `nslookup mydomain.com` * alternaive dns info lookup
 
 `dig -t MX rotati.tech` * lookup a specific DNS entry i.e. MX records
+
+## Disk usage and folders
+
+Find the size of **all folders** under the `/mnt` directory:
+
+```
+du -h /mnt
+```
+
+If you want to show only the size of the reqested folder using the `-s` switch:
+
+```
+du -sh /mnt
+```
 
 ## Grep
 

@@ -1,7 +1,7 @@
 ### Install the correct version of Truffle
 
 ```
-npm un -g truffle
+npm uninstall -g truffle
 npm i -g truffle@nodeLTS
 ```
 
