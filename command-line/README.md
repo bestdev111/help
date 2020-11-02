@@ -269,6 +269,10 @@ Change the hostname on Ububtu:
 hostnamectl set-hostname viveks-laptop
 ```
 
+### Change password of current user
+
+Simply run `passwd` and follow the instructions.
+
 ### Using rsync to copy data from machine to machine
 
 Lets say you have two EC2 instances and one has some data on epemeral storage that you want to copy over to another instance that has EBS storage. Then the `rsync` command can come to your rescue!
