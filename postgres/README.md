@@ -2,6 +2,12 @@
 
 `psql -U postgres`
 
+## Connect to a remote db
+
+```
+psql -h hostname -U username database
+```
+
 ### Display server version
 
 ```
