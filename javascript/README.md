@@ -677,3 +677,10 @@ Example usage (import the default and the non-defaults):
 import fight, { jump } from 'script'
 ```
 
+### Convert decimal to hex and back to decimal
+
+```
+decimal = 100
+hexStr = decimal.toString(16) // '64'
+yourNumber = parseInt(hexStr, 16) // 10
+```
