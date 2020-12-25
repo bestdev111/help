@@ -107,3 +107,11 @@ C-b <number>
 C-b d
 ```
 
+### Resize the pane
+
+ To resize tmux panes, you’ll first want to hit your prefix — ctrl + b by default — and then the colon key :. What this does is brings up a prompt at the bottom of your screen.
+
+ Now you’ll want to type in resize-pane in the prompt, followed by a hyphen - and either D, U, L, R.
+
+ Check this for more information on [resizing Tmux Panes](https://michaelsoolee.com/resize-tmux-panes/#:~:text=To%20resize%20tmux%20panes%2C%20you,%2C%20U%2C%20L%2C%20R%20.).
+

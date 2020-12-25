@@ -453,7 +453,7 @@ promise
   .catch(console.error('Something went wrong'))
 ```
 
-Resolving in multiple promises using `Promise.all`. In the blow example, all the promises must complete before being returned as an array of results. So in this case, even though promise1 completes in 1 second, the output will resolve in 3 seconds because of promise2. Thank.
+Resolving in multiple promises using `Promise.all`. In the below example, all the promises must complete before being returned as an array of results. So in this case, even though promise1 completes in 1 second, the output will resolve in 3 seconds because of promise2. Thank.
 
 ```
 promise1 = new Promise((resolve, reject) => {
