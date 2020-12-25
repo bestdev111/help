@@ -98,6 +98,12 @@ If you want to show only the size of the reqested folder using the `-s` switch:
 du -sh /mnt
 ```
 
+View disk usage for the top level folders only:
+
+```
+du -h -d1 /
+```
+
 ## Grep
 
 Search for something except in one folder (e.g. node_modules)
