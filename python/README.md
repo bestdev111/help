@@ -1,6 +1,10 @@
-## Python HTTP Server
+## Python2 HTTP Server
 
 `python -m SimpleHTTPServer`
+
+## Python3 HTTP Server
+
+`python3 -m http.server`
 
 ## PIP
 
