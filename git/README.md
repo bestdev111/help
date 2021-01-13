@@ -169,3 +169,12 @@ git push <remote_name> -d <branch_name>
 1. Now push to the Gitlab (origin) master `git push origin master`
 
 Above from [this SO question](https://stackoverflow.com/questions/50973048/forking-git-repository-from-github-to-gitlab).
+
+## Get git commit hash
+
+A git commit has a 40 character identifier that is usually referred to as the "SHA" or "hash". This is how you display the hash in your terminal.
+
+```
+git rev-parse HEAD
+git rev-parse --short HEAD
+```
