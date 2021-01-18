@@ -684,3 +684,13 @@ decimal = 100
 hexStr = decimal.toString(16) // '64'
 yourNumber = parseInt(hexStr, 16) // 10
 ```
+
+### Useful Javascript sleep function
+
+Basically using a Promise to resolve in a certain number of ms by using setTimeout to call the Promise resolve.
+
+```
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+```
