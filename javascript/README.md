@@ -13,6 +13,14 @@ date = new Date(ts_miliseconds)
 // 2021-01-19T21:38:58.000Z
 ```
 
+### Writiing to console on same line
+
+Use `process.stdout` like so (note the `\r` at the end which is the carrage return)
+
+```
+process.stdout.write(`tx found ${found} in TTL: \t${ttl}. Slowest TTL: \t${slowestTTL}\r`)
+```
+
 ### Global Environemnt
 
 The `global` variable what the `window`.
