@@ -4,6 +4,15 @@
 Date.parse('18 Aug 2020 12:00:00 GMT')  // 1597752000000
 ```
 
+### Convert ms timestampt to date
+
+```
+ts_seconds = 1611092338
+ts_miliseconds = 1611092338 * 1000
+date = new Date(ts_miliseconds)
+// 2021-01-19T21:38:58.000Z
+```
+
 ### Global Environemnt
 
 The `global` variable what the `window`.
