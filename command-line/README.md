@@ -293,3 +293,11 @@ NOTE: `rsync` uses SSH protocol so you need to
 ```
 rsync -avzlh --stats username@hostname:/source/folder/  /destination/folder/ > /var/log/rsync-status.log
 ```
+
+### Listening Network Interfaces
+
+Using `netstat`:
+
+```
+netstat -lnt
+```
