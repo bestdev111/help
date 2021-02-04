@@ -46,6 +46,12 @@ tmux rename-session -t 0 gethsync
 tmux attach -t gethsync
 ```
 
+### Kill / delete a detached session
+
+```
+tmux kill-session -t geth
+```
+
 ### Display help in a Tmux session
 
 ```
@@ -126,3 +132,9 @@ C-b d
 
  Check this for more information on [resizing Tmux Panes](https://michaelsoolee.com/resize-tmux-panes/#:~:text=To%20resize%20tmux%20panes%2C%20you,%2C%20U%2C%20L%2C%20R%20.).
 
+### Saving / Restoring tmux sessions
+
+You need two tools to help with this:
+
+* Use [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) for manual save / restore
+* Use [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum) for auto save and restor on server reboot
