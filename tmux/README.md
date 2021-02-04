@@ -134,7 +134,12 @@ C-b d
 
 ### Saving / Restoring tmux sessions
 
-You need two tools to help with this:
+You need [two tools](https://arcolinux.com/everything-you-need-to-know-about-tmux-reconstructing-tmux-sessions-after-restarts/) to help with this:
 
 * Use [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) for manual save / restore
 * Use [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum) for auto save and restor on server reboot
+
+Use the following commands to save / restore on demand:
+
+* Save - `prefix + Ctrl-s`
+* Restore - `prefix + Ctrl-r`
