@@ -143,3 +143,4 @@ Use the following commands to save / restore on demand:
 
 * Save - `prefix + Ctrl-s`
 * Restore - `prefix + Ctrl-r`
+* Install - `prefix + I`
