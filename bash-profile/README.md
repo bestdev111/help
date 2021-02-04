@@ -34,11 +34,6 @@ alias dp='docker ps'
 alias di='docker images'
 # Working directory alias
 alias wk='cd ~/workspace/'
-alias wkp='cd ~/workspace/rotati/pyful/py-api'
-alias wkv='cd ~/workspace/rotati/pyful/vue-crypto'
-alias wko='cd ~/workspace/rotati/oscar-web'
-alias wkt='cd ~/workspace/tigerbee/tb-bot-ruby'
-alias wkl='cd ~/workspace/learning/ML/machine-learning-with-python'
 alias wkh='cd ~/workspace/help/'
 # Docker helper functions
 dexec() { docker exec -it "$1" bash; }

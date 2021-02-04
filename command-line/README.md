@@ -301,3 +301,9 @@ Using `netstat`:
 ```
 netstat -lnt
 ```
+
+### Check services are enabled to restart or not (under STATE col).
+sudo systemctl list-unit-files --type=service
+
+### Enable services to start up on reboot
+sudo systemctl enable your-fine-service
