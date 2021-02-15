@@ -104,6 +104,42 @@ View disk usage for the top level folders only:
 du -h -d1 /
 ```
 
+## Mounting and Unmounting Disks
+
+Checking disk mounts, file systems and so on:
+
+```
+lsblk -f
+file -s /dev/sdf
+fsck -N /dev/sdf
+```
+
+Mounting a drive is pretty simple:
+
+```
+mount /dev/sdf /mnt
+```
+
+Specify the file system to use:
+
+```
+mount -t ext4 /dev/sdf /mnt
+```
+
+Unmounting a drive is also pretty simple:
+
+```
+umount /mnt
+```
+
+## fstab
+
+Its always a good idea to use `fstab` for mounting drives automatically. Usually a good place to check if drives are not mounting / unmounting as expected:
+
+```
+nano /etc/fstab
+```
+
 ## Grep
 
 Search for something except in one folder (e.g. node_modules)
