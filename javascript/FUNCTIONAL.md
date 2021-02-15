@@ -1,5 +1,7 @@
 ## Functional Programming
 
+Try out this cool game, [Cube Composer](https://david-peter.de/cube-composer/), to learn functional programming.
+
 Use functionst that:
 
 * Perform a single task only
@@ -327,6 +329,21 @@ let shoppingCart = [
 const sumAmount = (currentTotalAmount, order) => currentTotalAmount + order.amount;
 
 const getTotalAmount = (shoppingCart) => shoppingCart.reduce(sumAmount, 0);
+
+getTotalAmount(shoppingCart); // 120
+```
+
+### Combining Map + Reduce
+
+```
+const getAmount = (order) => order.amount;
+const sumAmount = (acc, amount) => acc + amount;
+
+function getTotalAmount(shoppingCart) {
+  return shoppingCart
+    .map(getAmount)
+    .reduce(sumAmount, 0);
+}
 
 getTotalAmount(shoppingCart); // 120
 ```
