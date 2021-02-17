@@ -711,3 +711,12 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 ```
+
+
+### Load a class / function from file in to a node REPL
+
+Navigate to the folder containing the file. This is so that dependencies can be found relative to the pwd. Then start a node REPL and use the `.load` function to load the file(s) you want to use.
+
+```
+.load somefile.js
+```
