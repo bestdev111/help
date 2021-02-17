@@ -720,3 +720,16 @@ Navigate to the folder containing the file. This is so that dependencies can be 
 ```
 .load somefile.js
 ```
+
+## Debugging LevelDB database keys / values
+
+Open a node REPL and then run the following:
+
+```
+var level = require('level')
+var db = level('./data/db')
+db.open()
+
+// Dump all keys / values in db
+db.createReadStream().on('data', function(data) {console.log(`${data.key}: ${data.value}`)})
+```
