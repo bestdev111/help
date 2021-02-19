@@ -45,3 +45,18 @@
 * `FN + F3` - move to the next occurance of matched string using the Find command as noted above.
 
 * `CTRL + G` - goto a specific line
+
+## Toggle terminal window
+
+1. Open the search bar and type ''
+1. Add the following config to the `keybindings.json` file in the array:
+
+```
+  {
+    "key": "cmd+alt+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "!terminalFocus"
+  }
+```
+
+1. Now you can use the "cmd+alt+m" shortcut to toggle the VS Code terminal window to fullscreen and pane.
