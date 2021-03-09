@@ -103,6 +103,17 @@ iex> List.replace_at([1, 2, 3], 0, 0)
 iex> [0, 2, 3]
 ```
 
+### Keyword Lists
+
+A keyword list is like an array of tuples:
+
+```
+iex> colors = [{:primary, "red"}, {:secondary, "green"}]
+[primary: "red", secondary: "green"]
+iex> colors[:primary]
+"red"
+```
+
 ### List.keyfind
 
 Receives a list of tuples and returns the first tuple where the element at
@@ -118,4 +129,57 @@ iex> List.keyfind(keypairlist, "Cambodia", 1)
 iex> nil
 iex> List.keyfind(keypairlist, "Cambodia", 1, "Cambodia does not have a city called Cambodia")
 iex> "Cambodia does not have a city called Cambodia"
+```
+
+### Maps
+
+Create a map and access via dot notation:
+
+```
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"}
+iex> colors.primary
+"red"
+```
+
+...or access via pattern matching:
+
+```
+iex> %{secondary: secondary_color} = colors
+%{primary: "red", secondary: "blue"}
+iex> secondary_color
+"blue"
+```
+
+**Updating a value in a map**
+
+Using the [`Map.put`](https://hexdocs.pm/elixir/Map.html#put/3) function:
+
+```
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"}
+iex> Map.put(colors, :primary, "green")
+%{primary: "green", secondary: "blue"}
+iex> colors
+%{primary: "red", secondary: "blue"}
+```
+
+Using the pipe operator:
+
+**NOTE:** this can only be used when updating an *existing property* in a map and not to add a new property.
+
+```
+iex> %{ colors | secondary: "purple" }
+%{primary: "red", secondary: "purple"}
+iex> colors
+%{primary: "red", secondary: "blue"}
+```
+
+**Fetch from a map by key**
+
+```
+iex> map = %{a: 1, b: 2}
+%{a: 1, b: 2}
+iex> Map.fetch(map, :a)
+{:ok, 1}
 ```
