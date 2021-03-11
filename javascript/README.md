@@ -733,3 +733,34 @@ db.open()
 // Dump all keys / values in db
 db.createReadStream().on('data', function(data) {console.log(`${data.key}: ${data.value}`)})
 ```
+
+## Websocket Servers
+
+## Websocket Clients
+
+You can see below the browser and the node js (with ws libary) is almost the same!
+
+**Browser Example**
+
+```
+const ws = new WebSocket('ws://localhost:1234/yoursocketpath')
+ws.onopen = () => {
+  ws.send('hi from browser client!')
+}
+ws.onmessage = e => {
+  console.log(e.data)
+}
+```
+
+**Node JS Client Example using ws library**
+
+```
+const WebSocket = require('ws');
+const ws = new WebSocket('ws://localhost:1234/yoursocketpath');
+ws.on('open', function open() {
+  ws.send('hi from node js client!');
+});
+ws.on('message', function incoming(data) {
+  console.log(data);
+});
+```
