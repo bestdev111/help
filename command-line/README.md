@@ -142,7 +142,7 @@ nano /etc/fstab
 
 ## Extend a Linux file system after resizing a volume
 
-Taken from the AWS Article here.
+Taken from the AWS Article [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html).
 
 Basiclly, after resizing an EBS volume via the AWS EC2 Console you need to extend the file system in the Linux terminal of the server like so:
 
