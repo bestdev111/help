@@ -140,6 +140,37 @@ Its always a good idea to use `fstab` for mounting drives automatically. Usually
 nano /etc/fstab
 ```
 
+## Extend a Linux file system after resizing a volume
+
+Taken from the AWS Article here.
+
+Basiclly, after resizing an EBS volume via the AWS EC2 Console you need to extend the file system in the Linux terminal of the server like so:
+
+1. Check your file system parameters
+
+```
+df -hT
+lsblk
+```
+
+2. Run `growpart` command on the extended partition
+
+```
+sudo growpart /dev/nvme1n1 1
+```
+
+3. Run `resize2fs` (for `ext4` filesystms) on the mounted drive:
+
+```
+sudo resize2fs /dev/nvme1n1p1
+```
+
+4. Check using `df -h` to view the newly resized drive!
+
+```
+df -h
+```
+
 ## Grep
 
 Search for something except in one folder (e.g. node_modules)
