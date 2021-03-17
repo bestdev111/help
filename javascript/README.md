@@ -734,7 +734,13 @@ db.open()
 db.createReadStream().on('data', function(data) {console.log(`${data.key}: ${data.value}`)})
 ```
 
+# Websockets
+
 ## Websocket Servers
+
+```
+TODO
+```
 
 ## Websocket Clients
 
