@@ -142,3 +142,35 @@ The SHA256 is useful to verify if the image you have is the one you expect!
 ```
 docker inspect image-name | grep sha256
 ```
+
+## Docker Compose
+
+### Using Docker Compose to start all services in the docker-compose.yml file
+
+```
+docker-compose up
+```
+
+### Using Docker Compose to start a specific service
+
+```
+docker-compose start mycoolservice
+```
+
+### Docker Compose to stop a specific service
+
+```
+docker-compose stop mycoolservice
+```
+
+### Docker Compose to remove the container created for the service
+
+```
+docker-compose rm -f -v mycoolservice
+```
+
+### Docker Compose to create a new container created for the service
+
+```
+docker-compose create --force-recreate mycoolservice
+```
