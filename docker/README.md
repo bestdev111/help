@@ -129,6 +129,12 @@ To build a new image locally use `docker build` as follows
 docker build -t name:v1 .
 ```
 
+### Build a new image from a Specific Dockerfile
+
+```
+docker build -t mycoolimage:v1 -f custom.Dockerfile .
+```
+
 ### Check the SHA256 of an image
 
 The SHA256 is useful to verify if the image you have is the one you expect!
