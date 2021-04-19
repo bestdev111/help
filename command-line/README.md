@@ -205,6 +205,12 @@ Run a ruby WEBrick server from the command line:
 ruby -run -e httpd .
 ```
 
+...or using Python
+
+```
+python3 -m http.server
+```
+
 ## Start Brave in Incognito Mode from the command line
 
 Helps with debugging and/or getting Brave to actaully start if it keeps crashing!
