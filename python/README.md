@@ -28,3 +28,14 @@ source venv/bin/activate
 # Deactivate the environment
 deactivate
 ```
+
+## Get date from timestamp
+
+```
+import datetime
+timestamp = 1618445100
+date = datetime.datetime.fromtimestamp(1618445100)
+print(date.strftime('%Y-%m-%d %H:%M:%S'))
+
+# 2021-04-15 07:05:00
+```
