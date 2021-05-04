@@ -102,6 +102,22 @@ node─┬─node─┬─2*[node───6*[{node}]]
      └─10*[{node}]
 ```
 
+To expand the tree run with the `-s` switch:
+
+```
+pstree -ps  9317
+systemd(1)───node(9317)─┬─{node}(9331)
+                        ├─{node}(9332)
+                        ├─{node}(9333)
+                        ├─{node}(9334)
+                        ├─{node}(9335)
+                        ├─{node}(9337)
+                        ├─{node}(9348)
+                        ├─{node}(9349)
+                        ├─{node}(9350)
+                        └─{node}(9351)
+```
+
 ## Disk usage and folders
 
 Find the size of **all folders** under the `/mnt` directory:
