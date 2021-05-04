@@ -118,6 +118,18 @@ systemd(1)───node(9317)─┬─{node}(9331)
                         └─{node}(9351)
 ```
 
+View the system top using `systemd-cgtop` like so:
+
+```
+systemd-cgtop
+```
+
+View the system processes as a recursive list using `systemd-cgls` like so:
+
+```
+systemd-cgls
+```
+
 ## Disk usage and folders
 
 Find the size of **all folders** under the `/mnt` directory:
