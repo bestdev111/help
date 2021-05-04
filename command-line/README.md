@@ -84,6 +84,24 @@ See [Save Terminal Output to a File for details](https://askubuntu.com/questions
 
 `dig -t MX rotati.tech` * lookup a specific DNS entry i.e. MX records
 
+## Process managment
+
+Use `pgrep` to get the process (PID) for a running application / process:
+
+```
+pgrep node
+```
+
+Use `pstree` to get the parent / child process tree for a PID:
+
+```
+pstree 126813
+
+node─┬─node─┬─2*[node───6*[{node}]]
+     │      └─42*[{node}]
+     └─10*[{node}]
+```
+
 ## Disk usage and folders
 
 Find the size of **all folders** under the `/mnt` directory:
