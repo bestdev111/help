@@ -39,3 +39,34 @@ print(date.strftime('%Y-%m-%d %H:%M:%S'))
 
 # 2021-04-15 07:05:00
 ```
+
+## Jupyter Notebook
+
+This section assumes you have already instaled [Anaconda](https://www.anaconda.com/products/individual).
+
+Start a notebook server from a specific folder:
+
+```
+cd mynotebooks
+jupyter notebook
+```
+
+### NBConvert
+
+Convert a notebook a differnet file format using `nbconvert`
+
+```
+jupyter nbconvert --to html working-with-code-cells.ipynb
+```
+
+More details in the [Nbconvert Docs](https://nbconvert.readthedocs.io/en/latest/usage.html).
+
+### Magic Keywords
+
+NOTE: To list all available magic keywords using `%lsmagic` and run that cell in a notebook.
+
+Some of the most popular [magic commands are listed here](https://towardsdatascience.com/top-8-magic-commands-in-jupyter-notebook-c1582e813560).
+
+Run the Python debugger using `%pdb`
+
+Time a function using ``
