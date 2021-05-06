@@ -70,3 +70,13 @@ Some of the most popular [magic commands are listed here](https://towardsdatasci
 Run the Python debugger using `%pdb`
 
 Time a function using ``
+
+### Slideshows
+
+You can create a slideshow from a Jupyter notebook.
+
+First select the notebook type under `View -> Cell Toolbar -> Slideshow`.
+
+Now, each cell can choose the type of slide that it is.
+
+Slides are full slides that you move through left to right. Sub-slides show up in the slideshow by pressing up or down. Fragments are hidden at first, then appear with a button press. You can skip cells in the slideshow with Skip and Notes leaves the cell as speaker notes.
