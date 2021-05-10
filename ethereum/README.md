@@ -32,6 +32,7 @@ networks
     MyContract: 0xfA72444090CA289c615F2A0b81A2f4a8ae32140A
 ```
 
+Use `networks --clean` to clean up!
 
 ### Get general info
 
