@@ -1,5 +1,10 @@
 ## Docker & Docker Compose tips
 
+### Install Docker and Docker Compose on Ubuntu
+
+* [Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+* [Install Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
+
 ### Create a new Docker based Rails app
 
 [Check this Rails 6 Docker example](https://github.com/jensendarren/rails6-docker-demo)
