@@ -188,8 +188,22 @@ node -p "process.env"
 npm outdated
 ```
 
+### Then update them all
+
+Note to update to the latest MAJOR version you need to run `npm i packagename@latest`
+
+```
+npm update
+```
+
 ### Serve a folder over http
 
 ```
 npx serve -s folder
+```
+
+### Show config
+
+```
+npm config ls -l
 ```
