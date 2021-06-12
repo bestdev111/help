@@ -426,3 +426,7 @@ sudo systemctl list-unit-files --type=service
 
 ### Enable services to start up on reboot
 sudo systemctl enable your-fine-service
+
+### Disable services starting up on reboot
+sudo systemctl disable your-fine-service
+update-rc.d -f proftpd remove

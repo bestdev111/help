@@ -82,3 +82,13 @@ Now, each cell can choose the type of slide that it is.
 Slides are full slides that you move through left to right. Sub-slides show up in the slideshow by pressing up or down. Fragments are hidden at first, then appear with a button press. You can skip cells in the slideshow with Skip and Notes leaves the cell as speaker notes.
 
 Here is an [example of a slideshow in a Jupyter Notebook](https://github.com/jorisvandenbossche/2015-PyDataParis/blob/master/pandas_introduction.ipynb).
+
+### Create a link to download a dataframe from a Notebook
+
+Lets say you have access to a Pandas DataFrame `df` in your notebook but do not have the original file or the data in a file format at all. In this case you can save the file using `to_csv` function and use the `FileLink` module to display a link in the Jupyter Notebook to download it like so:
+
+```
+from IPython.display import FileLink
+df.to_csv('mydf.csv', index=False)
+display(FileLink('mydf.csv'))
+```
