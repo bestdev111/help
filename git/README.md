@@ -161,6 +161,16 @@ git branch -d branch_name
 git push <remote_name> -d <branch_name>
 ```
 
+### Rename a branch
+
+```
+# Checkout the branch to rename and then rename it like so
+git branch -m updated-branch-name
+
+# Now simply push this branch to the remote and then delete the old named branch from remove using the command mentioned above.
+```
+
+
 ## Fork a Github repo to Gitlab
 
 1. Create the empty repo in Gitlab
