@@ -430,3 +430,84 @@ sudo systemctl enable your-fine-service
 ### Disable services starting up on reboot
 sudo systemctl disable your-fine-service
 update-rc.d -f proftpd remove
+
+### Journalctl
+
+### Filter logs
+
+Show all logs of bot:
+
+```
+journalctl -u bot
+```
+
+Since a specific date:
+
+```
+journalctl --since "2020-11-16 11:10" -u bot
+```
+
+Last n lines since a sepecific amount of time:
+
+```
+journalctl -u bot -n 50 --since "1 hour ago"
+```
+
+Logs containing specific string
+
+```
+journalctl -u bot | grep a09b0280
+```
+
+or
+
+```
+journalctl -u bot -n 50 --since "1 minute ago" | grep something
+```
+
+### Purge logs
+
+Check the disk usage of journals:
+
+```
+journalctl --disk-usage
+```
+
+You can set this in `/etc/systemd/journald.conf` to keep the log file below a specified size like so:
+
+```
+SystemMaxUse=100M
+```
+
+Check disk usage:
+
+```
+journalctl --disk-usage
+```
+
+If the logs get too large then they can be manually purged using these couple of examples (check `man journalctl` for more information.)
+
+**Clear all logs**
+
+Run both of the below commands one after the other.
+
+```
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=1s
+```
+
+**Clear a subset of logs**
+
+To clear just a subset of logs, use the following examples:
+
+```
+// Retain the last 2 days
+journalctl --vacuum-time=2d
+```
+
+or
+
+```
+// Retain 100 MB of logs
+journalctl --vacuum-size=100M
+```
