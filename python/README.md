@@ -92,3 +92,10 @@ from IPython.display import FileLink
 df.to_csv('mydf.csv', index=False)
 display(FileLink('mydf.csv'))
 ```
+
+You can also use this utility to copy a private folder to another location in a public workspace:
+
+```
+import shutil
+shutil.copytree('../../data/project_1/', '/home/workspace/data')
+```
