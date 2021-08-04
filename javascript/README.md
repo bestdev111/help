@@ -661,6 +661,14 @@ To use CommonJS in a browser / web app, developers would typically use [browerif
 
 So when writing Node JS apps that run on a server or desktop (i.e. not in a browser) then we will use the CommonJS approach.
 
+#### Require cache
+
+CommonJS caches modules when they are loaded so that they are parsed, loaded and executed once. If you want to remove a module from the Require cache, so that it is loaded again on the next require call (perhaps when using a Node JS REPL), then you can delete the module from the cache like so:
+
+```
+delete require.cache[require.resolve('./utils/getGasPriceObject')]
+```
+
 ### ES6 modules
 
 In your module file, use the [`export` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) or `export default` statement for the items you want to make available to others from your module.
