@@ -99,3 +99,42 @@ You can also use this utility to copy a private folder to another location in a 
 import shutil
 shutil.copytree('../../data/project_1/', '/home/workspace/data')
 ```
+
+### Lists
+
+```
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
+q3 = months[6:9] #start index is inclusive , end index is exclusive
+print(q3) # ['Jul', 'Aug', 'Sep']
+
+first_half = months[:6]
+print(first_half) # ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+
+second_half = months[6:]
+print(second_half) # ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+fishes = "one fish, two fish, red fish, blue fish"
+print(fishes.count('fish')) # 4
+
+print('fish' in  fishes) # True
+print('Sun' in months) # False
+```
+
+### Strings
+
+**Interpolation**
+
+```
+username = "Kinari"
+timestamp = "04:50"
+url = "http://petshop.com/pets/mammals/cats"
+
+print(f"{username} accessed the site {url} at {timestamp}") # Kinari accessed the site http://petshop.com/pets/mammals/cats at 04:50
+```
+
+**Format**
+
+```
+maria_string = "Maria loves {} and {}"
+print(maria_string.format("math", "statistics"))
+```
