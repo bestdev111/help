@@ -170,6 +170,15 @@ git branch -m updated-branch-name
 # Now simply push this branch to the remote and then delete the old named branch from remove using the command mentioned above.
 ```
 
+### Overwrite a branch
+
+To completely overwrite an existing branch with another branch without promting any merge conflcts you can issue the following command. Assumes you want overwrite `master` branch with `branch_to_completely_overwrite_master` branch:
+
+```
+git checkout master
+
+git reset --hard origin/branch_to_completely_overwrite_master
+```
 
 ## Fork a Github repo to Gitlab
 
