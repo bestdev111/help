@@ -178,6 +178,8 @@ To completely overwrite an existing branch with another branch without promting 
 git checkout master
 
 git reset --hard origin/branch_to_completely_overwrite_master
+
+git push --force
 ```
 
 ## Fork a Github repo to Gitlab
