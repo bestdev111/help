@@ -75,27 +75,39 @@ console.log(randomstring.generate());
 
 ### Execute js inline
 
-`node -p "'Dadou'.padEnd(8,'*')"`
+```
+node -p "'Dadou'.padEnd(8,'*')"
+```
 
 ### View versions of everything:
 
-`node -p "process.versions"`
+```
+node -p "process.versions"
+```
 
 ### Check V8 version used by Node JS
 
-`node -p 'process.versions.v8'`
+```
+node -p 'process.versions.v8'
+```
 
 ### List all V8 options
 
-`node --v8-options | more`
+```
+node --v8-options | more
+```
 
 ### Check V8 Options that are in progress
 
-`node --v8-options | grep "in progress"`
+```
+node --v8-options | grep "in progress"
+```
 
 ### Check V8 Options available for the Garbage Collector
 
-`node --v8-options | grep "gc"`
+```
+node --v8-options | grep "gc"
+```
 
 ### Check the GC object in a Node REPL (Read Eval Print Loop) session
 
