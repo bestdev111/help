@@ -131,6 +131,11 @@ print(eclipse_dates[-3:]) # here the start index is 3 in then go to the end
 
 sentence = ["I", "wish", "to", "register", "a", "complaint", "."]
 sentence2[0:2] = ["We", "want"] #  replaces element 0 and 1 with this
+
+numbers = [5,2,4,3,1]
+min(numbers) # 1
+max(numbers) # 5
+sorted(numbers) # [1,2,3,4,5]
 ```
 
 ### Strings
