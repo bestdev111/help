@@ -156,3 +156,13 @@ print(f"{username} accessed the site {url} at {timestamp}") # Kinari accessed th
 maria_string = "Maria loves {} and {}"
 print(maria_string.format("math", "statistics"))
 ```
+
+**join**
+
+```
+new_str = "\n".join(["fore", "aft", "starboard", "port"])
+print(new_str)
+
+name = "-".join(["García", "O'Kelly"])
+print(name)
+```
