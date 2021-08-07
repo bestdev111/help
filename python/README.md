@@ -275,6 +275,8 @@ html_str += "</ul>"
 print(html_str)
 ```
 
+**for loops with dictionaries**
+
 Using a dictionary with the get method to check for words and updating a word counter:
 
 ```
@@ -288,6 +290,31 @@ for word in book_title:
 print(word_counter) # {'huckleberry': 1, 'gasby': 1, 'sherlock': 1, 'hamlet': 1, 'expectations': 1, 'fin': 1, 'of': 2, 'great': 2, 'adventures': 2, 'the': 2, 'holmes': 1}
 ```
 
+When you iterate through a dictionary using a for loop, doing it the normal way (`for n in some_dict`) will only give you access to the keys in the dictionary
+
+```
+cast = {
+           "Jerry Seinfeld": "Jerry Seinfeld",
+           "Julia Louis-Dreyfus": "Elaine Benes",
+           "Jason Alexander": "George Costanza",
+           "Michael Richards": "Cosmo Kramer"
+       }
+```
+
+Iterating through the cast dictionary in the usual way with a for loop would give you just the keys, as shown below:
+
+```
+for key in cast:
+    print(key)
+```
+
+If you wish to iterate through both keys and values, you can use the built-in method `items` like this:
+
+```
+for key, value in cast.items():
+    print("Actor: {}    Role: {}".format(key, value))
+```
+
 **range**
 
 A quick note on range (which is defined as `range(start=0, stop, step=1)`):
@@ -299,3 +326,159 @@ range(1, 10, 2) # 1, 3, 5, 7, 9
 ```
 
 Note to actually print these out use, for example: `print(list(range(4))) # [0, 1, 2, 3]`
+
+**while loops**
+
+```
+card_deck = [4, 11, 8, 5, 13, 2, 8, 10]
+hand = []
+
+# adds the last element of the card_deck list to the hand list
+# until the values in hand add up to 17 or more
+while sum(hand)  < 17:
+    hand.append(card_deck.pop())
+
+print(hand) # [10, 8]
+```
+
+***break and continue***
+
+Example: Write a loop with a `break` statement to create a string, `news_ticker`, that is exactly 140 characters long. You should create the news ticker by adding `headlines` from the headlines list, inserting a space in between each headline. If necessary, truncate the last headline in the middle so that news_ticker is exactly 140 characters long.
+
+```
+headlines = ["Local Bear Eaten by Man",
+             "Legislature Announces New Laws",
+             "Peasant Discovers Violence Inherent in System",
+             "Cat Rescues Fireman Stuck in Tree",
+             "Brave Knight Runs Away",
+             "Papperbok Review: Totally Triffic"]
+
+news_ticker = ""
+for headline in headlines:
+    news_ticker += headline + " "
+    if len(news_ticker) >= 140:
+        news_ticker = news_ticker[:140]
+        break
+
+print(news_ticker) Local Bear Eaten by Man Legislature Announces New Laws Peasant Discovers Violence Inherent in System Cat Rescues Fireman Stuck in Tree Brave
+```
+### Zip
+
+zip returns an iterator that combines multiple iterables into one sequence of tuples. Each tuple contains the elements in that position from all the iterables. For example, printing
+
+```
+list(zip(['a', 'b', 'c'], [1, 2, 3])) # [('a', 1), ('b', 2), ('c', 3)].
+```
+
+For example combining two lists and looping over the tuples using a for loop:
+
+```
+letters = ['a', 'b', 'c']
+nums = [1, 2, 3]
+
+for letter, num in zip(letters, nums):
+    print("{}: {}".format(letter, num))
+```
+
+In addition to zipping two lists together, you can also unzip a list into tuples using an asterisk.
+
+```
+some_list = [('a', 1), ('b', 2), ('c', 3)]
+letters, nums = zip(*some_list)
+```
+
+### Enumerate
+
+`enumerate` is a built in function that returns an iterator of tuples containing indices and values of a list. You'll often use this when you want the index along with each element of an iterable in a loop.
+
+```
+letters = ['a', 'b', 'c', 'd', 'e']
+for i, letter in enumerate(letters):
+    print(i, letter)
+```
+
+or take a look at this example:
+
+```
+x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+points = []
+
+for l, x, y, z in zip(labels, x_coord, y_coord, z_coord):
+    points.append("{}: {}, {}, {}".format(l,x,y,z))
+
+print(points) # ['F: 23, 677, 4', 'J: 53, 233, 16', 'A: 2, 405, -6', 'Q: -12, 433, -42', 'Y: 95, 905, 3', 'B: 103, 376, -6', 'W: 14, 432, 23', 'X: -5, 445, -1']
+```
+
+**unzipping**
+
+```
+cast = (("Barney", 72), ("Robin", 68), ("Ted", 72), ("Lily", 66), ("Marshall", 76))
+
+# define names and heights here
+names, heights = zip(*cast) # note the use of '*' here
+
+print(names)
+print(heights)
+```
+
+Below we use zip to transpose data from a 4-by-3 matrix to a 3-by-4 matrix.
+
+```
+data = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11))
+
+data_transpose =  tuple(zip(*data))
+print(data_transpose) # ((0, 3, 6, 9), (1, 4, 7, 10), (2, 5, 8, 11))
+```
+
+Below we use `enumerate` to modify the cast list so that each element contains the name followed by the character's corresponding height. For example, the first element of cast should change from "Barney Stinson" to "Barney Stinson 72".
+
+```
+cast = ["Barney Stinson", "Robin Scherbatsky", "Ted Mosby", "Lily Aldrin", "Marshall Eriksen"]
+heights = [72, 68, 72, 66, 76]
+
+# write your for loop here
+for i, name in enumerate(cast):
+    cast[i] = "{} {}".format(name, heights[i])
+
+print(cast)
+```
+
+### List Comprehensions
+
+In Python, you can create lists really quickly and concisely with list comprehensions.
+
+```
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
+capitalized_cities = [city.title() for city in cities]
+```
+
+Conditionals in list comprehension:
+
+```
+squares = [x**2 for x in range(9) if x % 2 == 0]
+```
+
+Note adding an else statement requires a little order modification like this:
+
+```
+squares = [x**2 if x % 2 == 0 else x + 3 for x in range(9)]
+```
+
+another example:
+
+```
+scores = {
+             "Rick Sanchez": 70,
+             "Morty Smith": 35,
+             "Summer Smith": 82,
+             "Jerry Smith": 23,
+             "Beth Smith": 98
+          }
+
+passed = [name for name, score in scores.items() if score >= 65]
+print(passed)
+```
