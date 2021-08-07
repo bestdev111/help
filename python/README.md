@@ -249,6 +249,45 @@ for index in range(len(cities)):
     cities[index] = cities[index].title()
 ```
 
+Another example: create username from a list of full names:
+
+```
+names = ["Joey Tribbiani", "Monica Geller", "Chandler Bing", "Phoebe Buffay"]
+usernames = []
+
+for name in names:
+    usernames.append(name.lower().replace(' ','_'))
+
+print(usernames)
+```
+
+Yet another example: create a HTML list:
+
+```
+items = ['first string', 'second string']
+html_str = "<ul>\n"          # The "\n" here is the end-of-line char, causing
+                             # chars after this in html_str to be on next line
+
+for item in items:
+    html_str += "<li>{}</li>\n".format(item)
+html_str += "</ul>"
+
+print(html_str)
+```
+
+Using a dictionary with the get method to check for words and updating a word counter:
+
+```
+book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the','great','gasby','hamlet','adventures','of','huckleberry','fin']
+
+word_counter = {}
+
+for word in book_title:
+    word_counter[word] = word_counter.get(word, 0) + 1
+
+print(word_counter) # {'huckleberry': 1, 'gasby': 1, 'sherlock': 1, 'hamlet': 1, 'expectations': 1, 'fin': 1, 'of': 2, 'great': 2, 'adventures': 2, 'the': 2, 'holmes': 1}
+```
+
 **range**
 
 A quick note on range (which is defined as `range(start=0, stop, step=1)`):
@@ -258,3 +297,5 @@ range(4) # 0, 1, 2, 3
 range(2, 6) # 2, 3, 4, 5
 range(1, 10, 2) # 1, 3, 5, 7, 9
 ```
+
+Note to actually print these out use, for example: `print(list(range(4))) # [0, 1, 2, 3]`
