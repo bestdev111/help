@@ -136,6 +136,15 @@ numbers = [5,2,4,3,1]
 min(numbers) # 1
 max(numbers) # 5
 sorted(numbers) # [1,2,3,4,5]
+
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a == b) # True
+print(a is b) # True ('is' here same as '===' in javascript)
+print(a == c) # True
+print(a is c) # False
 ```
 
 ### Strings
@@ -165,4 +174,87 @@ print(new_str)
 
 name = "-".join(["García", "O'Kelly"])
 print(name)
+```
+
+### Tuples
+
+```
+AngkorWat = (13.4125, 103.866667)
+print(type(AngkorWat))
+lat, lon = AngkorWat # Tuple unpacking
+print(lat)
+```
+
+
+### Sets
+
+```
+a = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+b = set(a) # {1, 2, 3, 4}
+b.pop()
+print(b) # {2, 3, 4}
+```
+
+### Dictionary
+
+```
+population = {'Shanghai': 17.8, 'Istanbul': 13.3, 'Karachi': 13.0, 'Mumbai': 12.5}
+population['Shanghai'] # 17.8
+population.get('London') # None
+population.get('Vulcan', 'City not found') # 'City not found'
+```
+
+### If, then else
+
+```
+season = 'spring'
+if season == 'spring':
+    print('plant the garden!')
+elif season == 'summer':
+    print('water the garden!')
+elif season == 'fall':
+    print('harvest the garden!')
+elif season == 'winter':
+    print('stay indoors!')
+else:
+    print('unrecognized season')
+
+number = 145
+if number % 2 == 0:
+    print("Number " + str(number) + " is even.")
+else:
+    print("Number " + str(number) + " is odd.")
+```
+
+### Loops
+
+**for loops**
+
+To simply loop use the iterable property like so:
+
+```
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
+capitalized_cities = []
+
+for city in cities:
+    capitalized_cities.append(city.title())
+```
+
+To modify a list in place using the index then use `range` with `len` like so:
+
+```
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
+
+for index in range(len(cities)):
+    cities[index] = cities[index].title()
+```
+
+**range**
+
+A quick note on range (which is defined as `range(start=0, stop, step=1)`):
+
+```
+range(4) # 0, 1, 2, 3
+range(2, 6) # 2, 3, 4, 5
+range(1, 10, 2) # 1, 3, 5, 7, 9
 ```
