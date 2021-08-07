@@ -482,3 +482,59 @@ scores = {
 passed = [name for name, score in scores.items() if score >= 65]
 print(passed)
 ```
+
+### Functions
+
+```
+def cylinder_volume(height, radius):
+    pi = 3.14159
+    return height * pi * radius ** 2
+```
+
+Note you can add docstrings to functions like so:
+
+```
+def population_density(population, land_area):
+    """Calculate the population density of an area. """
+    return population / land_area
+```
+
+...or a more detailed docstring like so:
+
+```
+def population_density(population, land_area):
+    """Calculate the population density of an area.
+
+    INPUT:
+    population: int. The population of that area
+    land_area: int or float. This function is unit-agnostic, if you pass in values in terms
+    of square km or square miles the function will return a density in those units.
+
+    OUTPUT:
+    population_density: population / land_area. The population density of a particular area.
+    """
+    return population / land_are
+```
+
+### Lambda Expressions
+
+Can use to create anonymous functions.
+
+For example, this function:
+
+```
+def multiply(x, y):
+    return x * y
+```
+
+can be expresed as a lambda like so:
+
+```
+multiply = lambda x, y: x * y
+```
+
+... and called in the same way:
+
+```
+multiply(4,7)
+```
