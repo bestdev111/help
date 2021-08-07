@@ -538,3 +538,133 @@ multiply = lambda x, y: x * y
 ```
 multiply(4,7)
 ```
+
+### Iterators And Generators
+
+Here is an example of a generator function called my_range, which produces an iterator that is a stream of numbers from 0 to (x - 1).
+
+Also check out [this blog post](https://medium.com/hackernoon/a-common-misunderstanding-about-python-generators-dbc622914d33).
+
+```
+def my_range(x):
+    i = 0
+    while i < x:
+        yield i
+        i += 1
+```
+
+...which we can use like this:
+
+```
+for x in my_range(5):
+    print(x)
+```
+
+### User Input
+
+Example 1:
+
+```
+name = input("Enter your name: ")
+print("Hello there, {}!".format(name.title()))
+```
+
+Example 2: Requiring int input
+
+```
+num = int(input("Enter an integer"))
+print("hello" * num)
+```
+
+### Try...Except blocks
+
+Example 1:
+
+```
+try:
+    # some code
+except ValueError:
+    # some code
+except KeyboardInterrupt:
+    # some code
+```
+
+Example 2:
+
+```
+try:
+    # some code
+except ZeroDivisionError as e:
+   # some code
+   print("ZeroDivisionError occurred: {}".format(e))
+```
+
+### Files
+
+Read a files contents:
+
+```
+f = open('my_path/my_file.txt', 'r')
+file_data = f.read()
+f.close()
+```
+
+Write to a file:
+
+```
+f = open('my_path/my_file.txt', 'w')
+f.write("Hello there!")
+f.close()
+```
+
+**with**
+
+```
+with open('my_path/my_file.txt', 'r') as f:
+    file_data = f.read()
+```
+
+Given a text file, `camelot.txt`, containing the following:
+
+```
+We're the knights of the round table
+We dance whenever we're able
+```
+
+... then we can read the file lines using:
+
+```
+camelot_lines = []
+with open("camelot.txt") as f:
+    for line in f:
+        camelot_lines.append(line.strip())
+
+print(camelot_lines) # ["We're the knights of the round table", "We dance whenever we're able"]
+```
+
+### Standard Libary
+
+[The Python Standard Library](https://docs.python.org/3/library/index.html)
+
+The Python Standard Library has a lot of modules! To help you get familiar with what's available, here are a selection of our favourite Python Standard Library modules and why we use them!
+
+* [csv](https://docs.python.org/3/library/csv.html): very convenient for reading and writing csv files
+* [collections](https://docs.python.org/3/library/collections.html): useful extensions of the usual data types including OrderedDict, defaultdict and namedtuple
+* [random](https://docs.python.org/3/library/random.html): generates pseudo-random numbers, shuffles sequences randomly and chooses random items
+* [string](https://docs.python.org/3/library/string.html): more functions on strings. This module also contains useful collections of letters like string.digits (a string containing all characters which are valid digits).
+* [re](https://docs.python.org/3/library/re.html): pattern-matching in strings via regular expressions
+* [math](https://docs.python.org/3/library/math.html): some standard mathematical functions
+* [os](https://docs.python.org/3/library/os.html): interacting with operating systems
+* [os.path](https://docs.python.org/3/library/os.path.html): submodule of os for manipulating path names
+* [sys](https://docs.python.org/3/library/sys.html): work directly with the Python interpreter
+* [json](https://docs.python.org/3/library/json.html): good for reading and writing json files (good for web work)
+
+For example, to use the `json` library:
+
+```
+import json
+
+data = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+
+print(data)
+```
