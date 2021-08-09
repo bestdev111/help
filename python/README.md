@@ -681,3 +681,9 @@ data = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
 
 print(data)
 ```
+
+### 3rd Party Libaries
+
+There are many. Here are some:
+
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - for parsing HTML docs
