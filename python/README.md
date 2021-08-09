@@ -687,3 +687,4 @@ print(data)
 There are many. Here are some:
 
 * [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - for parsing HTML docs
+* [NLTK](https://www.nltk.org/api/nltk.tokenize.html) - Natural Language Toolkit
