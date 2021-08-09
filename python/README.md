@@ -642,6 +642,19 @@ with open("camelot.txt") as f:
 print(camelot_lines) # ["We're the knights of the round table", "We dance whenever we're able"]
 ```
 
+**regular expressions**
+
+Split text into tokens (words), leaving out punctuation
+(Hint: Use regex to split on non-alphanumeric characters)
+
+```
+import re
+text = 'As I was waiting, a man came out of a side room, and at a glance I was sure he must'
+tokens = re.findall(r"\w+",text)
+
+# ['As', 'I', 'was', 'waiting', 'a', 'man', 'came', 'out', 'of', 'a', 'side', 'room', 'and', 'at', 'a', 'glance', 'I', 'was', 'sure', 'he', 'must']
+```
+
 ### Standard Libary
 
 [The Python Standard Library](https://docs.python.org/3/library/index.html)
@@ -655,7 +668,7 @@ The Python Standard Library has a lot of modules! To help you get familiar with 
 * [re](https://docs.python.org/3/library/re.html): pattern-matching in strings via regular expressions
 * [math](https://docs.python.org/3/library/math.html): some standard mathematical functions
 * [os](https://docs.python.org/3/library/os.html): interacting with operating systems
-* [os.path](https://docs.python.org/3/library/os.path.html): submodule of os for manipulating path names
+* [os.path](https://docs.python.org/3/library/os.path.html): **submodule** of os for manipulating path names
 * [sys](https://docs.python.org/3/library/sys.html): work directly with the Python interpreter
 * [json](https://docs.python.org/3/library/json.html): good for reading and writing json files (good for web work)
 
