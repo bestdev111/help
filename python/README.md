@@ -655,6 +655,14 @@ tokens = re.findall(r"\w+",text)
 # ['As', 'I', 'was', 'waiting', 'a', 'man', 'came', 'out', 'of', 'a', 'side', 'room', 'and', 'at', 'a', 'glance', 'I', 'was', 'sure', 'he', 'must']
 ```
 
+**raw strings**
+
+Use the letter `r` before a string to make it raw which means that python will not interpert any escape sequences but will instead print them out directly:
+
+```
+print(r'Hello\n\tWorld') # Hello\n\tWorld
+```
+
 ### Standard Libary
 
 [The Python Standard Library](https://docs.python.org/3/library/index.html)
