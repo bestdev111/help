@@ -150,6 +150,12 @@ View disk usage for the top level folders only:
 du -h -d1 /
 ```
 
+Sort the output from `du`:
+
+```
+du -hs * | sort -h
+```
+
 ## Mounting and Unmounting Disks
 
 Checking disk mounts, file systems and so on:
