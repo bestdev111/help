@@ -663,6 +663,35 @@ Use the letter `r` before a string to make it raw which means that python will n
 print(r'Hello\n\tWorld') # Hello\n\tWorld
 ```
 
+### Pickle Serialize Data
+
+You can pickle and serialize these variables like tokenized variable which takes long to process and save it to the workspace. So that you don't have to re-run all the variables again. That is you can pick up the work where you left off in the last session.
+
+```
+# saving the tokenized file
+import pickle
+pickle.dump( tokenized, open( "tokenized.p", "wb" ) )
+
+# loading the tokenized file
+import pickle
+tokenized = pickle.load( open( "tokenized.p", "rb" ) )
+```
+
+...or when needing to [save pytorch models](https://pytorch.org/tutorials/beginner/saving_loading_models.html):
+
+```
+#saving the torch model to the main directory
+import torch
+torch.save(model, '/home/workspace/checkpoint.pth')
+
+#loading the torch model on to the CPU
+model = torch.load('checkpoint.pth', map_location=lambda storage, loc: storage)
+```
+
+### Progress Bar using tqdm
+
+[How to make a terminal progress bar using tqdm](https://www.geeksforgeeks.org/python-how-to-make-a-terminal-progress-bar-using-tqdm/)
+
 ### Standard Libary
 
 [The Python Standard Library](https://docs.python.org/3/library/index.html)
