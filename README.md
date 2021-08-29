@@ -21,5 +21,3 @@ By the way, here is a [markdown cheatsheet](https://github.com/adam-p/markdown-h
 * [zip](./zip)
 * [tmux](./tmux)
 * [curl](./curl)
-
-That's all for now!
